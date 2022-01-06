@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/stylesheet/style.css">
     <title>Document</title>
+    <script src='voicerss-tts.min.js'></script>
 </head>
 <body>
+    <script>
+        VoiceRSS.speech({
+            key: '<API key>',
+            src: 'Hello, world!',
+            hl: 'en-us',
+            v: 'Linda',
+            r: 0, 
+            c: 'mp3',
+            f: '44khz_16bit_stereo',
+            ssml: false
+        });
+    </script>
     
-    
+
 
 
 
