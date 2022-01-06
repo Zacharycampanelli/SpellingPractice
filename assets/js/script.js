@@ -8,13 +8,11 @@ var hard = [];
 function getFrequency(wordScore) {
   if (wordScore.score > 4.5) {
     easy.push(wordScore.word);
-  } else if (wordScore.score > 3) {
+  } else if (wordScore.score > 3.5) {
     medium.push(wordScore.word);
   } else if (wordScore.score > 0) {
-    hard.push(wordScore.score);
+    hard.push(wordScore.word);
   }
-
-  console.log(easy, medium, hard);
 }
 
 // Returns the frequency (0 - 7) of a word to rate it's difficulty
@@ -34,20 +32,29 @@ function getFrequencyAPI() {
       }
     )
       .then(function (response) {
-        if (response.ok && response.status == 200) {
-          response.json().then(function (data) {
-            if (data.frequency.zipf) {
-              chosenWord = data.word;
-              freq = data.frequency.zipf;
-              var wordScore = {
-                word: chosenWord,
-                score: freq,
-              };
-              console.log(wordScore);
-              getFrequency(wordScore);
-            }
-          });
-        } else {
+        try {
+          if (response.ok && response.status == 200) {
+            response.json().then(function (data) {
+              if (data.frequency.zipf != undefined) {
+                {
+                  chosenWord = data.word;
+                  freq = data.frequency.zipf;
+                  var wordScore = {
+                    word: chosenWord,
+                    score: freq,
+                  };
+                  console.log(wordScore);
+                  getFrequency(wordScore);
+                  console.log(easy, medium, hard);
+                }
+              }
+            });
+          } else {
+            console.log(
+              "Error Code: " + response.status + "\n" + response.statusText
+            );
+          }
+        } catch (error) {
           console.log(
             "Error Code: " + response.status + "\n" + response.statusText
           );
@@ -71,7 +78,7 @@ function getRandomWord() {
   var words;
   //  fetch("https://random-word-api.herokuapp.com/word?number=10")
 
-  fetch("https://random-words5.p.rapidapi.com/getMultipleRandom?count=5", {
+  fetch("https://random-words5.p.rapidapi.com/getMultipleRandom?count=15", {
     method: "GET",
     headers: {
       "x-rapidapi-host": "random-words5.p.rapidapi.com",
