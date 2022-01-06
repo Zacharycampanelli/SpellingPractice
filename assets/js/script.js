@@ -1,18 +1,24 @@
 var wordList = [];
-function getData(randomWord) {
-  var word = randomWord;
-  console.log(typeof randomWord, typeof word, word);
-  fetch(
-    "https://twinword-word-graph-dictionary.p.rapidapi.com/reference/?entry=" +
-      word,
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "twinword-word-graph-dictionary.p.rapidapi.com",
-        "x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
-      },
-    }
-  )
+function getData() {
+  var word = wordList[0];
+  fetch("https://wordsapiv1.p.rapidapi.com/words/" + word , {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+		"x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190"
+	}
+})
+  // fetch(
+  //   "https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=" +
+  //     word + '"',
+  //   {
+  //     method: "GET",
+  //     headers: {
+  //       "x-rapidapi-host": "twinword-word-graph-dictionary.p.rapidapi.com",
+  //       "x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
+  //     },
+  //   }
+  // )
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
@@ -44,14 +50,13 @@ function getRandom() {
   })
     .then(function (response) {
       if (response.ok) {
-        console.log(response);
         response.json().then(function (data) {
-          console.log(data.length);
           // words = JSON.stringify(data);
           // console.log(words);
           //getData(words);
           getArray(data);
-          console.log(wordList);
+          console.log(wordList)
+          getData();
         });
       }
     })
