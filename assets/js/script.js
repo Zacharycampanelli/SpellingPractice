@@ -1,34 +1,31 @@
 var wordList = [];
-function getData() {
-  var word = wordList[0];
-  fetch("https://wordsapiv1.p.rapidapi.com/words/" + word , {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-		"x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190"
-	}
-})
-  // fetch(
-  //   "https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=" +
-  //     word + '"',
-  //   {
-  //     method: "GET",
-  //     headers: {
-  //       "x-rapidapi-host": "twinword-word-graph-dictionary.p.rapidapi.com",
-  //       "x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
-  //     },
-  //   }
-  // )
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          console.log(data);
-        });
+
+function getFrequencyAPI() {
+  for (var i = 0; i < wordList.length; i++) {
+    fetch(
+      "https://wordsapiv1.p.rapidapi.com/words/" + wordList[i] + "/frequency",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+          "x-rapidapi-key":
+            "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
+        },
       }
-    })
-    .catch(function (err) {
-      console.error(err);
-    });
+    )
+      .then(function (response) {
+        if (response.ok && response.status == 200) {
+          response.json().then(function (data) {
+            console.log(data);
+          });
+        } else {
+          console.log(response.status, response.statusText);
+        }
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
+  }
 }
 
 function getArray(input) {
@@ -37,7 +34,7 @@ function getArray(input) {
   }
 }
 
-function getRandom() {
+function getRandomWord() {
   var words;
   //  fetch("https://random-word-api.herokuapp.com/word?number=10")
 
@@ -53,10 +50,10 @@ function getRandom() {
         response.json().then(function (data) {
           // words = JSON.stringify(data);
           // console.log(words);
-          //getData(words);
+          //getFrequencyAPI(words);
           getArray(data);
-          console.log(wordList)
-          getData();
+          console.log(wordList);
+          getFrequencyAPI();
         });
       }
     })
@@ -65,4 +62,4 @@ function getRandom() {
     });
 }
 
-getRandom();
+getRandomWord();
