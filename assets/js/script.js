@@ -1,4 +1,7 @@
-var buttonEl = document.querySelector("#start-button")
+var enterButtonEl = document.querySelector("#enter-button");
+
+var timerEl = document.createElement("div");
+var timer = 30;
 
 var wordList = [];
 
@@ -47,14 +50,14 @@ function getFrequencyAPI() {
                   };
                   getFrequency(wordScore);
                 }
-                
               }
             });
           } else {
             console.log(
               "Error Code: " + response.status + "\n" + response.statusText
             );
-          }console.log(easy, medium, hard);
+          }
+          console.log(easy, medium, hard);
         } catch (error) {
           console.log(
             "Error Code: " + response.status + "\n" + response.statusText
@@ -92,7 +95,7 @@ function getRandomWord() {
           getArray(data);
           console.log(wordList);
           getFrequencyAPI();
-          console.log(easy, medium, hard)
+          console.log(easy, medium, hard);
         });
       }
     })
@@ -101,4 +104,19 @@ function getRandomWord() {
     });
 }
 
-buttonEl.addEventListener("click", getRandomWord);
+// Timer Function
+function setTimer() {
+  timeInterval = setInterval(function () {
+    if (timer > 0) {
+      timerEl.textContent = timer;
+      timer--;
+    } else {
+      timerEl.textContent = 0;
+      clearInterval(timeInterval);
+    }console.log(timer)
+    
+  }, 1000);
+}
+
+enterButtonEl.addEventListener("click", getRandomWord);
+enterButtonEl.addEventListener("click", setTimer);
