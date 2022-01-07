@@ -1,3 +1,5 @@
+var buttonEl = document.querySelector("#start-button")
+
 var wordList = [];
 
 var easy = [];
@@ -43,17 +45,16 @@ function getFrequencyAPI() {
                     word: chosenWord,
                     score: freq,
                   };
-                  console.log(wordScore);
                   getFrequency(wordScore);
-                  console.log(easy, medium, hard);
                 }
+                
               }
             });
           } else {
             console.log(
               "Error Code: " + response.status + "\n" + response.statusText
             );
-          }
+          }console.log(easy, medium, hard);
         } catch (error) {
           console.log(
             "Error Code: " + response.status + "\n" + response.statusText
@@ -78,7 +79,7 @@ function getRandomWord() {
   var words;
   //  fetch("https://random-word-api.herokuapp.com/word?number=10")
 
-  fetch("https://random-words5.p.rapidapi.com/getMultipleRandom?count=15", {
+  fetch("https://random-words5.p.rapidapi.com/getMultipleRandom?count=20", {
     method: "GET",
     headers: {
       "x-rapidapi-host": "random-words5.p.rapidapi.com",
@@ -91,6 +92,7 @@ function getRandomWord() {
           getArray(data);
           console.log(wordList);
           getFrequencyAPI();
+          console.log(easy, medium, hard)
         });
       }
     })
@@ -99,4 +101,4 @@ function getRandomWord() {
     });
 }
 
-getRandomWord();
+buttonEl.addEventListener("click", getRandomWord);
