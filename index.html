@@ -5,30 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/stylesheet/style.css">
+
 
     <title>Spelling Practice</title>
 
     <script src='voicerss-tts.min.js'></script>
 
 </head>
-<header>
-    <nav class=".container .container.is-widescreen">
-    <div class="columns is-mobile">
-        <div class="page-title column is-full title"> Spelling Practice</div>
-    </div>
-    </nav>
-      
-</header>
-<body>
-
-
-    <div class="columns is-mobile">
-        <div class="secondary-title column is-11 is-offset-1 "> Rules of the Game </div>
-    </div>
-
-
-
+    <body>
+        
+    <header>
+        <nav class=".container .container.is-widescreen">
+        <div class="columns is-mobile box">
+            <div class="page-title column is-full title">Spelling Practice</div>
+        </div>
+        </nav>
+    </header>
+        <!-- Welcome Page -->
+       <section class="section is-large">
+        <div class="columns is-mobile box">
+            <div class="secondary-title column is-11 is-offset-1">
+                <h2 class="rules title">Rules of Game</h2>
+            <div>
+               <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis mollitia architecto laboriosam praesentium! Non, saepe impedit voluptatibus id hic dolores? Magni quas fugiat laborum quasi error quia non sit distinctio! </p>
+            </div>
+                <div class="column">
+                    <button class="button is-link is-align-items-center" id="start-button">Start</button>
+                </div>
+            </div>
+        </section>
+        <!-- user name page -->
+        <section class="section">
+            <div class="columns is-mobile box">
+                <i class="fas fa-medal is-size-1"></i>
+            </div>
+            <div class="column is-mobile box">
+                <h1 class="title">Welcome to Spell Practice!</h1>
+            </div>
+            <div>
+                <input id="input-name" class="input" type="text" placeholder="Enter Name">
+                <div class="column">
+                    <button class="button is-link is-align-items-center" id="enter-button">Enter</button>
+                </div>
+            </div>
+         </section>
+    
     <script>
         VoiceRSS.speech({
             key: '686c70ef815540a7bf530efb66b4255d',
@@ -41,11 +64,8 @@
             ssml: false
         });
     </script>
-    
 
-
-
-
+      
 
     <script src="./assets/js/script.js"></script>
 </body>
