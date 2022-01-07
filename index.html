@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/stylesheet/style.css">
+
     <title>Spelling Practice</title>
+
+    <script src='voicerss-tts.min.js'></script>
+
 </head>
 <header>
     <nav class=".container .container.is-widescreen">
@@ -18,11 +22,26 @@
 </header>
 <body>
 
+
     <div class="columns is-mobile">
         <div class="secondary-title column is-11 is-offset-1 "> Rules of the Game </div>
     </div>
 
 
+
+    <script>
+        VoiceRSS.speech({
+            key: '686c70ef815540a7bf530efb66b4255d',
+            src: 'Hello, world!',
+            hl: 'en-us',
+            v: 'Linda',
+            r: 0, 
+            c: 'mp3',
+            f: '44khz_16bit_stereo',
+            ssml: false
+        });
+    </script>
+    
 
 
 
