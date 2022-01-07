@@ -5,30 +5,156 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/stylesheet/style.css">
+
 
     <title>Spelling Practice</title>
 
     <script src='voicerss-tts.min.js'></script>
 
 </head>
-<header>
-    <nav class=".container .container.is-widescreen">
-    <div class="columns is-mobile">
-        <div class="page-title column is-full title"> Spelling Practice</div>
-    </div>
-    </nav>
-      
-</header>
-<body>
+    <body>
+        
+    <header>
+        <nav class=".container .container.is-widescreen">
+        <div class="columns is-mobile box">
+            <div class="page-title column is-full title">Spelling Practice</div>
+        </div>
+        </nav>
+    </header>
+        <!-- Welcome Page -->
+       <section class="section is-large">
+        <div class="columns is-mobile box">
+            <div class="secondary-title column is-11 is-offset-1">
+                <h2 class="rules title">Rules of Game</h2>
+            <div>
+               <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis mollitia architecto laboriosam praesentium! Non, saepe impedit voluptatibus id hic dolores? Magni quas fugiat laborum quasi error quia non sit distinctio! </p>
+            </div>
+                <div class="column">
+                    <button class="button is-link is-align-items-center" id="start-button">Start</button>
+                </div>
+            </div>
+        </section>
+        <!-- user name page -->
+        <section class="section">
+            <div class="columns is-mobile box">
+                <i class="fas fa-medal is-size-1"></i>
+            </div>
+            <div class="columns is-mobile box">
+                <h1 class="title">Welcome to Spell Practice!</h1>
+            </div>
+            <div>
+                <input id="input-name" class="input" type="text" placeholder="Enter Name">
+                <div class="column">
+                    
+                    <button class="button is-link" id="enter-button">Enter</button>
+                </div>
+            </div>
+         </section>
+
+        <!-- Game page -->
+        <section class="section is-large">
+            <div class="column is mobile box">
+                <div class="level">
+                    <!-- Left side username -->
+                    <div class="level-left box">
+                        <p class="level-item"><strong class="has-text-dark">User Name</strong></p>
+                    </div>
+                    <!-- Right side timer-->
+                    <div class="level-right box has-background-link-dark">
+                        <p class="level-item "><strong class="has-text-white">00:20</strong></p>
+                    </div>
+                </div>
+                <!-- Game section -->
+                <div class="box">
+                    <div class="column">
+                        <div class="is-pulled-right">
+                            <div class="box has-background-primary">
+                                <strong class="has-text-white">Level 1</strong>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <h4 class="title is-4">Definition</h4>
+                            <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, enim minus. Excepturi ducimus delectus ex sint aperiam distinctio dolores harum officiis corporis, aliquam voluptatem sapiente, nemo hic id dignissimos quo.
+                            </p>   
+                        </div>          
+                    </div>
+                    <!-- Text to speech button -->
+                    <div class="column">
+                            <button class="button is-link is-align-items-center" id="speech-button">
+                            <i class="fas fa-comment-dots">
+                            </i></button>
+                    </div>
+                    <!-- Enter word and click submit -->
+                    <div class="column">
+                        <div class="field has-addons">
+                            <p class="control">
+                              <input class="input" type="text" placeholder="Please Spell Word">
+                            </p>
+                            <p class="control">
+                              <button class="button has-background-primary has-text-white">
+                                Submit
+                              </button>
+                            </p>
+                        </div>
+                    </div> 
+                </div>
+                <!-- Next button -->
+                <div class ="level">
+                    <div class="column level-left">
+                    </div>
+                    <div class="column align level-right">
+                        <button class="button is-link is-align-items-center" id="next-button"><i class="fas fa-arrow-alt-circle-right"></i></button>
+                    </div>
+                </div>  
+            </div>
+        </section>
 
 
-    <div class="columns is-mobile">
-        <div class="secondary-title column is-11 is-offset-1 "> Rules of the Game </div>
-    </div>
 
+         <!-- Level page -->
+         <section class= "username">
+             <div class="columns is mobile box ml-2">
+               <h2 class="username"><strong>Username</strong></h2>  
+             </div>
+         </section>
+         <section class = "section">
+            <div class="columns is-mobile box">
+                <div class="column is-half"></div> 
+                <i class="fas fa-medal is-size-1"></i>
+            </div>
+            <div class="columns is-mobile box mt-3">
+                <div class="column is-half"></div> 
+                <h1 class="Level5"><strong>Level 5</strong></h1>
+            </div>
+            <div class="columns is-mobile box mt-3">
+                <div class="column is-half"></div> 
+                <h1 class="Level4"><strong>Level 4</strong></h1>
+            </div>
+            <div class="columns is-mobile box mt-3">
+                <div class="column is-half"></div> 
+                <h1 class="Level3"><strong>Level 3</strong></h1>
+            </div>
+            <div class="columns is-mobile box mt-3">
+                <div class="column is-half"></div> 
+                <h1 class="Level2"><strong>Level 2</strong></h1>
+            </div>
+            <div class="columns is-mobile box mt-3">
+                <div class="column is-half"></div> 
+                <h1 class="Level1"><strong>Level 1</strong></h1>
+            </div>
 
+        
+        </section>
+        <!-- Thank you page -->
+        <div class="columns is-mobile box">
+           <h1 class="ThankYouMessage"><strong>Thank you for playing our game! Please play again soon! </strong></h1>
+        </div>
+   
 
+    
     <script>
         VoiceRSS.speech({
             key: '686c70ef815540a7bf530efb66b4255d',
@@ -41,11 +167,8 @@
             ssml: false
         });
     </script>
-    
 
-
-
-
+      
 
     <script src="./assets/js/script.js"></script>
 </body>
