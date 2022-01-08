@@ -9,6 +9,8 @@ var easy = [];
 var medium = [];
 var hard = [];
 
+
+
 // Sorts words based on frequency score
 function getFrequency(wordScore) {
   if (wordScore.score > 4.5) {
@@ -120,3 +122,33 @@ function setTimer() {
 
 enterButtonEl.addEventListener("click", getRandomWord);
 enterButtonEl.addEventListener("click", setTimer);
+
+//onclick speech API 
+
+document.getElementById("speech-button").onclick = function talk () {
+
+fetch("http://api.voicerss.org/?key=686c70ef815540a7bf530efb66b4255d&hl=en-us&src=" + chosenWord, {
+
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
+		"x-rapidapi-key": "686c70ef815540a7bf530efb66b4255d"
+	}
+
+
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+})
+
+};
+
+
+
+
+
+
+
