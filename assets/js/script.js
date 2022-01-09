@@ -36,25 +36,27 @@ function setTimer() {
   }, 1000);
 }
 
-// Gets definition of word
-// function getDefinition(word) {
-//   console.log(word);
-//   fetch(
-//     "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
-//       word +
-//       "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
-//   )
-//     .then(function (response) {
-//       if (response.ok) {
-//         response.json().then(function (data) {
-//           console.log(response, data);
-//         });
-//       }
-//     })
-//     .catch(function (err) {
-//       console.error(err);
-//     });
-// }
+//Gets definition of word
+function getDefinition(word) {
+  console.log(word);
+  fetch(
+    "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
+      word +
+      "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
+  )
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(response, data);
+          var definitionWord = data[0].shortdef[0];
+          definitionEl.textContent = definitionWord;
+        });
+      }
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+}
 
 // Dynamically updates html page
 function updatePage(level) {
@@ -64,6 +66,7 @@ function updatePage(level) {
   var currentWord;
   if (currentLevel === 1) {
     currentWord = level;
+
     getDefinition(currentWord);
     // definitionEl.innerHTML = ;
   }
