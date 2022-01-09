@@ -239,18 +239,18 @@ endBtn.onclick = () => {
 var key= '0e3c3b4db7374feea8cf6109d290d6ec';
   var src = 'hello';
   var hl = 'en-us';
-  var voice = 'Linda';
-  var c = 'mp3';
-  var f = '44khz_16bit_stereo';
+  var c = 'wav';
+  var f = '8khz_8bit_mono';
   var ssml =  false;
 
   var speechButtonEl = document.getElementById("speech-button");
+
 var url = "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src
 
 
 
 
-speechButtonEl.addEventListener ("click", talk);
+speechButtonEl.addEventListener ("click", talk());
 
  function talk () {
 
