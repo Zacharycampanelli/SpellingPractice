@@ -40,7 +40,6 @@ function updatePage(level) {
   var currentWord;
   if (currentLevel === 1) {
     currentWord = level;
-    console.log(currentWord, typeof level);
     getDefinition(currentWord);
     // definitionEl.innerHTML = ;
   }
@@ -66,11 +65,11 @@ function getArray(list, input) {
 }
 
 // Returns the frequency (0 - 7) of a word to rate it's difficulty
-function getFrequencyAPI() {
+async function getFrequencyAPI() {
   var word;
   var freq;
   for (var i = 0; i < wordList.length; i++) {
-    fetch(
+    const res = await fetch(
       "https://wordsapiv1.p.rapidapi.com/words/" + wordList[i] + "/frequency",
       {
         method: "GET",
@@ -81,10 +80,10 @@ function getFrequencyAPI() {
         },
       }
     )
-      .then(function (response) {
+      .then(function (res) {
         // try {
-        if (response.ok && response.status == 200) {
-          response.json().then(function (data) {
+        if (res.ok && res.status == 200) {
+          res.json().then(function (data) {
             // if (data.frequency.zipf != undefined) {
             //   {
             console.log(data.frequency.zipf);
@@ -122,7 +121,7 @@ function getFrequencyAPI() {
 
   for (var i = 0; i < 5; i++) {
     console.log(wordList, freq);
-    console.log(frequencyList);
+    console.log(frequencyList[i]);
     getFrequency(wordList[i], frequencyList[i]);
   }
   console.log(easy, medium);
