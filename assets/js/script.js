@@ -12,7 +12,8 @@ var keepgBtn = document.querySelector(".keep-btn2");
 var endBtn = document.querySelector(".end-btn");
 var endPage = document.querySelector(".end-page");
 
-var timerEl = document.querySelector("#timer");
+var titleEl = document.querySelector(".title");
+var timerEl = document.querySelector(".timer");
 var timer = 30;
 var currentLevel = 1;
 
@@ -217,6 +218,7 @@ document.getElementById("enter-button").onclick = function () {
   document.getElementById("user-name").textContent = inputName.value;
   document.getElementById("user-names").textContent = inputName.value;
 
+  titleEl.textContent = inputName;
   // Add the player name to local storage and usage json to make a value
   window.localStorage.setItem("player", JSON.stringify(inputName.value));
 
