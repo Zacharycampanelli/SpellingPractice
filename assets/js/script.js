@@ -10,36 +10,10 @@ var endBtn = document.querySelector(".end-btn")
 var endPage = document.querySelector(".end-page")
 
 //Start game
-startBtn.onclick = ()=>{
+startBtn.onclick = () => {
   welcomePage.classList.add("deactiveWelcome")
   userInput.classList.add("activeInput");
 }
-
-//Continue game
-continueBtn.onclick = ()=>{
-  userInput.classList.remove("activeInput");
-  gamePage.classList.add("activeGame");
-}
-
-//Next button to the level page
-nextBtn.onclick = ()=>{
-  gamePage.classList.remove("activeGame");
-  levelPage.classList.add("activeLevel")
-}
-
-//Keep going to the next game level
-keepgBtn.onclick =()=>{
-  levelPage.classList.remove("activeLevel");
-  gamePage.classList.add("activeGame");
-}
-
-//End button to end screen
-endBtn.onclick =()=>{
-  levelPage.classList.remove("activeLevel");
-  endPage.classList.add("activeEndpage")
-}
-
-getRandomWord();
 
 // add selectors for button and input
 var playerBtnEl = document.querySelector("#enter-button");
@@ -67,6 +41,33 @@ document.getElementById("enter-button").onclick = function () {
 }
 
 
+//Continue game
+continueBtn.onclick = () => {
+  userInput.classList.remove("activeInput");
+  gamePage.classList.add("activeGame");
+}
+
+//Next button to the level page
+nextBtn.onclick = () => {
+  gamePage.classList.remove("activeGame");
+  levelPage.classList.add("activeLevel")
+}
+
+//Keep going to the next game level
+keepgBtn.onclick = () => {
+  levelPage.classList.remove("activeLevel");
+  gamePage.classList.add("activeGame");
+}
+
+//End button to end screen
+endBtn.onclick = () => {
+  levelPage.classList.remove("activeLevel");
+  endPage.classList.add("activeEndpage")
+}
+
+getRandomWord();
+
+
 // Timer Function
 function setTimer() {
   timeInterval = setInterval(function () {
@@ -76,8 +77,8 @@ function setTimer() {
     } else {
       timerEl.textContent = 0;
       clearInterval(timeInterval);
-    }console.log(timer)
-    
+    } console.log(timer)
+
   }, 1000);
 }
 
