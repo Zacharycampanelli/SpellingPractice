@@ -9,3 +9,53 @@ h1 {
     font-size:32px;
 }
 
+.welcome-page,
+.user-page,
+.game-page,
+.end-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s ease;
+}
+
+.welcome-page {
+    /* display:none; */
+    width: 100%;
+}
+
+.user-page {
+    /* display: none; */
+    width: 100%;
+}
+
+.game-page {
+    /* display: none; */
+    width: 100%;
+}
+
+.level-page {
+   /* display: none; */
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   transition: all 0.3s ease;
+}
+
+.highscore-page {
+    /* display: none; */
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s ease;
+}
+
+.end-page {
+    /* display: none; */
+}
