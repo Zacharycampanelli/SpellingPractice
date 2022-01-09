@@ -1,3 +1,27 @@
+
+var enterButtonEl = document.querySelector("#enter-button");
+
+var timerEl = document.createElement("div");
+var timer = 30;
+
+var wordList = [];
+
+var easy = [];
+var medium = [];
+var hard = [];
+
+
+
+// Sorts words based on frequency score
+function getFrequency(wordScore) {
+  if (wordScore.score > 4.5) {
+    easy.push(wordScore.word);
+  } else if (wordScore.score > 3.5) {
+    medium.push(wordScore.word);
+  } else if (wordScore.score > 0) {
+    hard.push(wordScore.word);
+  }
+=======
 var startBtn = document.querySelector(".start-btn");
 var welcomePage = document.querySelector(".welcome-page")
 var userInput = document.querySelector(".user-input");
@@ -13,6 +37,7 @@ var endPage = document.querySelector(".end-page")
 startBtn.onclick = ()=>{
   welcomePage.classList.add("deactiveWelcome")
   userInput.classList.add("activeInput");
+
 }
 
 //Continue game
@@ -83,4 +108,38 @@ function setTimer() {
 
 enterButtonEl.addEventListener("click", getRandomWord);
 enterButtonEl.addEventListener("click", setTimer);
+
+
+//onclick speech API 
+
+  var key= '2b89fd9e589e45af8478db4356434374';
+  var src = chosenWord;
+  var hl = 'en-us';
+  var voice = 'Linda';
+  var c = 'mp3';
+  var f = '44khz_16bit_stereo';
+  var ssml =  false;
+
+
+document.getElementById("speech-button").onclick = function talk () {
+
+  fetch("http://api.voicerss.org/?key=" + key + "&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src,  {
+    "method": "GET", 
+    "headers": {
+      "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
+      "x-rapidapi-key": "2b89fd9e589e45af8478db4356434374", }
+    
+  .then(response => {
+    console.log(response);
+  })
+  .catch(err => {
+    console.error(err);
+  } ) } 
+  ) }
+ 
+
+
+
+
+
 
