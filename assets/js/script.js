@@ -236,7 +236,7 @@ endBtn.onclick = () => {
 
 //onclick speech API
 
-var key= '22b89fd9e589e45af8478db4356434374';
+var key= '0e3c3b4db7374feea8cf6109d290d6ec';
   var src = 'hello';
   var hl = 'en-us';
   var voice = 'Linda';
@@ -245,7 +245,9 @@ var key= '22b89fd9e589e45af8478db4356434374';
   var ssml =  false;
 
   var speechButtonEl = document.getElementById("speech-button");
-var url = "http://api.voicerss.org/?key=22b89fd9e589e45af8478db4356434374&hl" + hl + "&c=" + c + "&f=" + f
+var url = "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src
+
+
 
 
 speechButtonEl.addEventListener ("click", talk);
@@ -267,23 +269,23 @@ speechButtonEl.addEventListener ("click", talk);
 //       .catch(err => {
 //         console.error(err);
 //       }); 
-fetch(url), {
+fetch(url) 
   // "method": "GET",
   // "headers": {
   //   "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
   //   "x-rapidapi-key": "1f5ff11066mshca96e2fb3f1ee05p15fbfbjsn3c6c749f7b9c4"
   // }
-} 
- .then(response => {
-  console.log(response);
+
+  .then(response => {
+   console.log(response);
+  })
+  .catch(err => {
+    console.error(err);
  })
- .catch(err => {
-   console.error(err);
-});
     
 //  
 
- }
+ } 
 
  talk ();
 
