@@ -236,39 +236,55 @@ endBtn.onclick = () => {
 
 //onclick speech API
 
-var key = "2b89fd9e589e45af8478db4356434374";
-var src = chosenWord;
-var hl = "en-us";
-var voice = "Linda";
-var c = "mp3";
-var f = "44khz_16bit_stereo";
-var ssml = false;
+var key= '22b89fd9e589e45af8478db4356434374';
+  var src = 'hello';
+  var hl = 'en-us';
+  var voice = 'Linda';
+  var c = 'mp3';
+  var f = '44khz_16bit_stereo';
+  var ssml =  false;
 
-document.getElementById("speech-button").onclick = function talk() {
-  fetch(
-    "http://api.voicerss.org/?key=" +
-      key +
-      "&hl=" +
-      hl +
-      "&c=" +
-      c +
-      "&f=" +
-      f +
-      "&src=" +
-      src,
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
-        "x-rapidapi-key": "2b89fd9e589e45af8478db4356434374",
-      }
+  var speechButtonEl = document.getElementById("speech-button");
+var url = "http://api.voicerss.org/?key=22b89fd9e589e45af8478db4356434374&hl" + hl + "&c=" + c + "&f=" + f
 
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => {
-          console.error(err);
-        }),
-    }
-  );
-};
+
+speechButtonEl.addEventListener ("click", talk);
+
+ function talk () {
+
+//   fetch("http://api.voicerss.org/?key=" + key + "&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src,  {
+//     "method": "GET", 
+//     "headers": {
+//       "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
+//       "x-rapidapi-key": "2b89fd9e589e45af8478db4356434374", 
+//       "Acess-Control-Allow-Origin": '*'}
+//     } ) 
+//       //"mode": "no-cors" }
+//   }
+//       .then(response => {
+//         console.log(response);
+//       })
+//       .catch(err => {
+//         console.error(err);
+//       }); 
+fetch(url), {
+  // "method": "GET",
+  // "headers": {
+  //   "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
+  //   "x-rapidapi-key": "1f5ff11066mshca96e2fb3f1ee05p15fbfbjsn3c6c749f7b9c4"
+  // }
+} 
+ .then(response => {
+  console.log(response);
+ })
+ .catch(err => {
+   console.error(err);
+});
+    
+//  
+
+ }
+
+ talk ();
+
+ 
