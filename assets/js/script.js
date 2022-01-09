@@ -237,7 +237,7 @@ endBtn.onclick = () => {
 //onclick speech API
 
 var key= '0e3c3b4db7374feea8cf6109d290d6ec';
-  var src = 'hello';
+  var src = 'this is working';
   var hl = 'en-us';
   var c = 'wav';
   var f = '8khz_8bit_mono';
@@ -249,32 +249,10 @@ var url = "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" + 
 
 
 
+speechButtonEl.onclick = function talk () {
 
-speechButtonEl.addEventListener ("click", talk());
-
- function talk () {
-
-//   fetch("http://api.voicerss.org/?key=" + key + "&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src,  {
-//     "method": "GET", 
-//     "headers": {
-//       "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
-//       "x-rapidapi-key": "2b89fd9e589e45af8478db4356434374", 
-//       "Acess-Control-Allow-Origin": '*'}
-//     } ) 
-//       //"mode": "no-cors" }
-//   }
-//       .then(response => {
-//         console.log(response);
-//       })
-//       .catch(err => {
-//         console.error(err);
-//       }); 
 fetch(url) 
-  // "method": "GET",
-  // "headers": {
-  //   "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
-  //   "x-rapidapi-key": "1f5ff11066mshca96e2fb3f1ee05p15fbfbjsn3c6c749f7b9c4"
-  // }
+ 
 
   .then(response => {
    console.log(response);
@@ -282,11 +260,24 @@ fetch(url)
   .catch(err => {
     console.error(err);
  })
-    
-//  
+
+
+ var audio = document.createElement("audio");
+
+ 
+ speechButtonEl.appendChild(audio);
+
+ var hearAudio = new Audio (url);
+ hearAudio.play();
 
  } 
 
+ 
+
  talk ();
+
+ 
+
+ 
 
  
