@@ -236,39 +236,48 @@ endBtn.onclick = () => {
 
 //onclick speech API
 
-var key = "2b89fd9e589e45af8478db4356434374";
-var src = chosenWord;
-var hl = "en-us";
-var voice = "Linda";
-var c = "mp3";
-var f = "44khz_16bit_stereo";
-var ssml = false;
+var key= '0e3c3b4db7374feea8cf6109d290d6ec';
+  var src = 'this is working';
+  var hl = 'en-us';
+  var c = 'wav';
+  var f = '8khz_8bit_mono';
+  var ssml =  false;
 
-document.getElementById("speech-button").onclick = function talk() {
-  fetch(
-    "http://api.voicerss.org/?key=" +
-      key +
-      "&hl=" +
-      hl +
-      "&c=" +
-      c +
-      "&f=" +
-      f +
-      "&src=" +
-      src,
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
-        "x-rapidapi-key": "2b89fd9e589e45af8478db4356434374",
-      }
+  var speechButtonEl = document.getElementById("speech-button");
 
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => {
-          console.error(err);
-        }),
-    }
-  );
-};
+var url = "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src
+
+
+
+speechButtonEl.onclick = function talk () {
+
+fetch(url) 
+ 
+
+  .then(response => {
+   console.log(response);
+  })
+  .catch(err => {
+    console.error(err);
+ })
+
+
+ var audio = document.createElement("audio");
+
+ 
+ speechButtonEl.appendChild(audio);
+
+ var hearAudio = new Audio (url);
+ hearAudio.play();
+
+ } 
+
+ 
+
+ talk ();
+
+ 
+
+ 
+
+ 
