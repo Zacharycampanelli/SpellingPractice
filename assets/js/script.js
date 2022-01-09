@@ -85,6 +85,7 @@ function scoreFrequency(item) {
   }
 }
 
+
 // Returns a global array of words created with the random words api
 function getArray(list, input) {
   for (i = 0; i < input.length; i++) {
@@ -147,6 +148,7 @@ async function getFrequencyAPI() {
   updatePage(easy);
 }
 
+
 // Returns a list of random words
 function getRandomWord() {
   var words;
@@ -178,32 +180,6 @@ startBtn.onclick = () => {
   userInput.classList.add("activeInput");
 };
 
-//Continue game
-continueBtn.onclick = () => {
-  userInput.classList.remove("activeInput");
-  gamePage.classList.add("activeGame");
-  setTimer();
-  getRandomWord();
-};
-
-//Next button to the level page
-nextBtn.onclick = () => {
-  gamePage.classList.remove("activeGame");
-  levelPage.classList.add("activeLevel");
-};
-
-//Keep going to the next game level
-keepgBtn.onclick = () => {
-  levelPage.classList.remove("activeLevel");
-  gamePage.classList.add("activeGame");
-};
-
-//End button to end screen
-endBtn.onclick = () => {
-  levelPage.classList.remove("activeLevel");
-  endPage.classList.add("activeEndpage");
-};
-
 // add selectors for button and input
 var playerBtnEl = document.querySelector("#enter-button");
 var inputName = document.querySelector("#input-name");
@@ -230,6 +206,33 @@ document.getElementById("enter-button").onclick = function () {
   //clear out name after it is entered
   inputName.value = "";
 };
+
+//Continue game
+continueBtn.onclick = () => {
+  userInput.classList.remove("activeInput");
+  gamePage.classList.add("activeGame");
+  setTimer();
+  getRandomWord();
+};
+
+//Next button to the level page
+nextBtn.onclick = () => {
+  gamePage.classList.remove("activeGame");
+  levelPage.classList.add("activeLevel");
+};
+
+//Keep going to the next game level
+keepgBtn.onclick = () => {
+  levelPage.classList.remove("activeLevel");
+  gamePage.classList.add("activeGame");
+};
+
+//End button to end screen
+endBtn.onclick = () => {
+  levelPage.classList.remove("activeLevel");
+  endPage.classList.add("activeEndpage");
+};
+
 
 //onclick speech API
 
@@ -269,8 +272,3 @@ document.getElementById("speech-button").onclick = function talk() {
     }
   );
 };
-
-getRandomWord();
-
-enterButtonEl.addEventListener("click", getRandomWord);
-enterButtonEl.addEventListener("click", setTimer);
