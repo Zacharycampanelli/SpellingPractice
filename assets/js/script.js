@@ -125,28 +125,65 @@ enterButtonEl.addEventListener("click", setTimer);
 
 //onclick speech API 
 
+
+
+
+
+
+  var key= '2b89fd9e589e45af8478db4356434374';
+  var src = 'Hello, world!';
+  var hl = 'en-us';
+  var voice = 'Linda';
+  //r: 0, 
+  var c = 'mp3';
+  //f: '44khz_16bit_stereo',
+  //ssml: false, } )
+
+
 document.getElementById("speech-button").onclick = function talk () {
 
-fetch("http://api.voicerss.org/?key=686c70ef815540a7bf530efb66b4255d&hl=en-us&src=" + chosenWord, {
+  fetch("http://api.voicerss.org/?key=" + key + "&=hl=" + hl + "&c=" + c + "&src=" + src,  {
+    "method": "GET", 
+    "headers": {
+      "x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
+      "x-rapidapi-key": "2b89fd9e589e45af8478db4356434374", }
 
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "voicerss-text-to-speech.p.rapidapi.com",
-		"x-rapidapi-key": "686c70ef815540a7bf530efb66b4255d"
-	}
+      //VoiceRSS.speech({
+        //key: '2b89fd9e589e45af8478db4356434374',
+        //src: 'Hello, world!',
+        //hl: 'en-us',
+        //v: 'Linda',
+        //r: 0, 
+        //c: 'mp3',
+        //f: '44khz_16bit_stereo',
+        //ssml: false, } )
+    
+   
+       
+  
+  .then(response => {
+    console.log(response);
+  })
+  .catch(err => {
+    console.error(err);
+  } ) } 
+  ) }
+  //.then(response => response.json("voice", chosenWord))
+  //.then(data => console.log(data))
+    
+
+//VoiceRSS.getAudio('Hello World', {}, (err, audio) => {
+  //if (err) console.error(err);
+  //else new Audio(audio).play();
+//});
 
 
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-})
 
-};
-
-
+// promise implementation
+// you can pass the options as the second argument, as in the callback implementation
+//VoiceRSS.getAudio('Hello World')
+  //.then(audio => new Audio(audio).play())
+  //.catch(error => console.log(error));
 
 
 
