@@ -46,14 +46,14 @@ function updatePage(level) {
 }
 
 // Sorts words based on frequency score
-function getFrequency(word, frequency) {
-  console.log(word, frequency);
-  if (frequency > 4.5) {
-    easy.push(word);
-  } else if (frequency > 3) {
-    medium.push(word);
-  } else if (frequency > 0) {
-    hard.push(word);
+function scoreFrequency(item) {
+  console.log(item);
+  if (item.score > 4.5) {
+    easy.push(item.word);
+  } else if (item.score > 3) {
+    medium.push(item.word);
+  } else if (item.score > 0) {
+    hard.push(item.word);
   }
 }
 
@@ -81,51 +81,42 @@ async function getFrequencyAPI() {
       }
     )
       .then(function (res) {
-        // try {
         if (res.ok && res.status == 200) {
           res.json().then(function (data) {
-            // if (data.frequency.zipf != undefined) {
-            //   {
-            console.log(data.frequency.zipf);
-            freq = data.frequency.zipf;
-            // chosenWord = data.word;
-            // freq = data.frequency.zipf;
-            // var wordScore = {
-            // word: chosenWord,
-            // score: freq,
-            // };
-
-            frequencyList.push(data.frequency.zipf);
-
-            console.log(frequencyList);
-            //   }
-            // }
+            if (data.frequency.zipf != undefined) {
+              //   {
+              console.log(data.frequency.zipf);
+              freq = data.frequency.zipf;
+              chosenWord = data.word;
+              freq = data.frequency.zipf;
+              var wordScore = {
+                word: chosenWord,
+                score: freq,
+              };
+              frequencyList.push(wordScore);
+              //frequencyList.push(data.frequency.zipf);
+              //   }
+            }
           });
         } else {
           console.log(
             "Error Code: " + response.status + "\n" + response.statusText
           );
         }
-        console.log(easy, medium, hard);
       })
-      //  catch (error) {
-      //     console.log(
-      //       "Error Code: " + response.status + "\n" + response.statusText
-      //     );
-      //   }
-      // })
       .catch(function (err) {
         console.error(err);
       });
   }
 
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < frequencyList.length; i++) {
     console.log(wordList, freq);
     console.log(frequencyList[i]);
-    getFrequency(wordList[i], frequencyList[i]);
+    //scoreFrequency(wordList[i], frequencyList[i]);
+    scoreFrequency(frequencyList[i]);
   }
   console.log(easy, medium);
-  updatePage(medium);
+  updatePage(easy);
 }
 
 // Returns a list of random words
@@ -180,4 +171,4 @@ function startGame() {
 
 enterButtonEl.addEventListener("click", startGame);
 
-console.log(frequencyList);
+
