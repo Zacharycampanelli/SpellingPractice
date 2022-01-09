@@ -9,34 +9,50 @@ h1 {
     font-size:32px;
 }
 
+html {
+    background-color: black;
+}
+
 .welcome-page,
-.user-page,
+.user-input,
 .game-page,
 .end-page {
-    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    /* transform: translate(-50%,-50%); */
     transition: all 0.3s ease;
 }
 
-.welcome-page {
-    /* display:none; */
+.user-input.activeInput,
+.game-page.activeGame {
+    z-index: 5;
+    opacity: 1;
     width: 100%;
 }
 
-.user-page {
-    /* display: none; */
+.welcome-page.deactiveWelcome {
+    opacity: 0;
+    width: 100%;
+}
+
+
+.welcome-page {
+    width: 100%;
+}
+
+
+.user-input {
+    opacity: 0;
     width: 100%;
 }
 
 .game-page {
-    /* display: none; */
+    opacity: 0;
     width: 100%;
 }
 
 .level-page {
-   /* display: none; */
+   display: none;
    position: absolute;
    width: 100%;
    height: 100%;
@@ -47,7 +63,7 @@ h1 {
 }
 
 .highscore-page {
-    /* display: none; */
+    display: none;
     position: absolute;
     width: 100%;
     top: 50%;
@@ -57,5 +73,5 @@ h1 {
 }
 
 .end-page {
-    /* display: none; */
+    display: none;
 }
