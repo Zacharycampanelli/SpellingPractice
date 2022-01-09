@@ -56,30 +56,36 @@ html {
     transform: translateY(-1500px);
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
-}
-
-
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
+.end-page.activeEndpage {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-3000px);
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .welcome-page {
+        transform: translateY(-20%);
+    }
 
 
-}
+    .user-input.activeInput {
+        transform: translateY(-120%);
+    }
+    
+    .game-page.activeGame {
+        transform: translateY(-175%);
+        /* transform: translateY(-175%); */
+    }
+    
+    .level-page.activeLevel {
+        transform: translateY(-210%);
+    }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+    .end-page.activeEndpage {
+        transform: translateY(-820%);
+    }
+    
 
 }
