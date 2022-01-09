@@ -16,46 +16,61 @@
 </head>
     <body>
         
-    <header>
+    <!-- <header>
         <nav class=".container .container.is-widescreen">
         <div class="columns is-mobile box">
             <div class="page-title column is-full title">Spelling Practice</div>
-        </div>
-        </nav>
-    </header>
+    </header> -->
         <!-- Welcome Page -->
-       <section class="section is-large">
-        <div class="columns is-mobile box">
-            <div class="secondary-title column is-11 is-offset-1">
-                <h2 class="rules title">Rules of Game</h2>
-            <div>
-               <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis mollitia architecto laboriosam praesentium! Non, saepe impedit voluptatibus id hic dolores? Magni quas fugiat laborum quasi error quia non sit distinctio! </p>
-            </div>
-                <div class="column">
-                    <button class="button is-link is-align-items-center" id="start-button">Start</button>
+        <section class="section is-large welcome-page">
+            <div class="column is-mobile box">
+                <div class="secondary-title column is-11 is-offset-1">
+                    <h1 class="page-title column is-full title">Spelling Practice</h1>
+                    <h2 class="rules title">Rules of Game</h2>
+                    <div>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis mollitia architecto laboriosam praesentium! Non, saepe impedit voluptatibus id hic dolores? Magni quas fugiat laborum quasi error quia non sit distinctio! </p>
+                    </div>
+                    <div class="column">
+                        <button class="button is-link is-align-items-center start-btn">Start</button>
+                    </div>
                 </div>
             </div>
         </section>
+            
         <!-- user name page -->
-        <section class="section">
-            <div class="columns is-mobile box">
-                <div class="column is-half"></div>
-                <i class="fas fa-medal is-size-1"></i>
-            </div>
-            <div class="columns is-mobile box">
-                <h1 class="title" id="welcome"></h1>
-            </div>
-            <div>
-                <input id="input-name" class="input" type="text" placeholder="Enter Name">
-                <div class="column">
-                    
-                    <button class="button is-link" id="enter-button">Enter</button>
+
+        <section class="section is-large user-input">
+            <div class="column is-mobile box">
+                <div class="column is-mobile box">
+                    <i class="fas fa-medal is-size-1"></i>
+                </div>
+                <div class="column is-mobile box">
+                    <h1 class="title">Welcome to Spell Practice!</h1>
+                </div>
+                <div>
+                    <input id="input-name" class="input" type="text" placeholder="Enter Name">
+                    <div class="column">
+                        <div class="field is-grouped">
+                            <p class="control">
+                              <button class="button is-link" id="enter-button">
+                                Enter
+                              </button>
+                            </p>
+                            <p class="control">
+                              <button class="button is-link continue-btn">
+                                Continue
+                              </button>
+                            </p>
+                        <!-- <button class="button is-link" id="enter-button">Enter</button> -->
+                    </div>
+
                 </div>
             </div>
-         </section>
-
+        </section>
+          
+    
         <!-- Game page -->
-        <section class="section is-large">
+        <section class="section is-large game-page">
             <div class="column is mobile box">
                 <div class="level">
                     <!-- Left side username -->
@@ -107,69 +122,80 @@
                     <div class="column level-left">
                     </div>
                     <div class="column align level-right">
-                        <button class="button is-link is-align-items-center" id="next-button"><i class="fas fa-arrow-alt-circle-right"></i></button>
+                        <button class="button is-link is-align-items-center next-btn" id="next-button"><i class="fas fa-arrow-alt-circle-right"></i></button>
                     </div>
                 </div>  
             </div>
+        </section>             
+        <!-- Level page -->
+        <section class="section is-large level-page">
+            <div class="column is-mobile box">
+                <section class= "username">
+                    <div class="column is mobile box ml-2">
+                      <h2 class="username"><strong>Username</strong></h2>  
+                    </div>
+                </section>
+                <section class = "section">
+                   <div class="columns is-mobile box">
+                       <div class="column is-half"></div> 
+                       <i class="fas fa-medal is-size-1"></i>
+                   </div>
+                   <div class="column is-mobile box mt-3">
+                       <div class="column is-half"></div> 
+                       <h1 class="Level5"><strong>Level 5</strong></h1>
+                   </div>
+                   <div class="column is-mobile box mt-3">
+                       <div class="column is-half"></div> 
+                       <h1 class="Level4"><strong>Level 4</strong></h1>
+                   </div>
+                   <div class="column is-mobile box mt-3">
+                       <div class="column is-half"></div> 
+                       <h1 class="Level3"><strong>Level 3</strong></h1>
+                   </div>
+                   <div class="column is-mobile box mt-3">
+                       <div class="column is-half"></div> 
+                       <h1 class="Level2"><strong>Level 2</strong></h1>
+                   </div>
+                   <div class="column is-mobile box mt-3">
+                       <div class="column is-half"></div> 
+                       <h1 class="Level1"><strong>Level 1</strong></h1>
+                   </div>
+                   <!-- Next button -->
+                    <div class ="level">
+                        <div class="column align level-left">
+                            <button class="button is-link is-align-items-center keep-btn2">Keep going</button>
+                            <button class="button is-danger is-align-items-center end-btn">End Game</button>
+                        </div>
+                    </div>  
+                </section>
+            </div>
         </section>
-
-
-
-         <!-- Level page -->
-         <section class= "username">
-             <div class="columns is-mobile box ml-2" id="user-names">
-               <div class="column is-half title"><strong></strong></div> 
+     
+        <!-- High Score Page -->
+        <section class="section is-large highscore-page">
+            <div class="column is-mobile box">
+               <section class="highScores">
+                   <div class="columns  is-flex-direction-column is-mobile">
+                     <div class="question box  is-size-3">Highscores:</div>
+                     <div class="buttons is-flex-direction-column ">
+                       <button class="button is-fullwidth">Score 1</button>
+                       <button class="button is-fullwidth">Score 2</button>
+                       <button class="button is-fullwidth">Score 3</button>
+                       <button class="button is-fullwidth">Score 4</button>
+                       <button class="button is-fullwidth">Score 5</button>
+                       <button class="button is-fullwidth">Score 6</button>
+                     </div>
+                 </div>
+               </section>
+            </div>
+        </section>
+    
+        <!-- Thank you page -->
+        <section class="section is-large end-page">
+            <div class="column is-mobile box">
+                <h1 class="ThankYouMessage"><strong>Thank you for playing our game! Please play again soon! </strong></h1>
              </div>
          </section>
-         <section class = "section">
-            <div class="columns is-mobile box">
-                <div class="column is-half"></div> 
-                <i class="fas fa-medal is-size-1"></i>
-            </div>
-            <div class="columns is-mobile box mt-3">
-                <div class="column is-half"></div> 
-                <h1 class="Level5"><strong>Level 5</strong></h1>
-            </div>
-            <div class="columns is-mobile box mt-3">
-                <div class="column is-half"></div> 
-                <h1 class="Level4"><strong>Level 4</strong></h1>
-            </div>
-            <div class="columns is-mobile box mt-3">
-                <div class="column is-half"></div> 
-                <h1 class="Level3"><strong>Level 3</strong></h1>
-            </div>
-            <div class="columns is-mobile box mt-3">
-                <div class="column is-half"></div> 
-                <h1 class="Level2"><strong>Level 2</strong></h1>
-            </div>
-            <div class="columns is-mobile box mt-3">
-                <div class="column is-half"></div> 
-                <h1 class="Level1"><strong>Level 1</strong></h1>
-            </div>
-        </section>
-            <!-- High Score Page -->
-
-            <section class="highScores">
-                  <div class="columns  is-flex-direction-column is-mobile">
-                    <div class="question box  is-size-3">Highscores:</div>
-                    <div class="buttons is-flex-direction-column ">
-                      <button class="button is-fullwidth">Score 1</button>
-                      <button class="button is-fullwidth">Score 2</button>
-                      <button class="button is-fullwidth">Score 3</button>
-                      <button class="button is-fullwidth">Score 4</button>
-                      <button class="button is-fullwidth">Score 5</button>
-                      <button class="button is-fullwidth">Score 6</button>
-                    </div>
-                </div>
-              </section>
-
-        
-        
-        <!-- Thank you page -->
-        <div class="columns is-mobile box">
-           <h1 class="ThankYouMessage"><strong>Thank you for playing our game! Please play again soon! </strong></h1>
-        </div>
-   
 
     
     <script>
