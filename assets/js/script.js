@@ -1,3 +1,4 @@
+
 var enterButtonEl = document.querySelector("#enter-button");
 
 var timerEl = document.createElement("div");
@@ -20,92 +21,48 @@ function getFrequency(wordScore) {
   } else if (wordScore.score > 0) {
     hard.push(wordScore.word);
   }
+=======
+var startBtn = document.querySelector(".start-btn");
+var welcomePage = document.querySelector(".welcome-page")
+var userInput = document.querySelector(".user-input");
+var continueBtn = document.querySelector(".continue-btn");
+var gamePage = document.querySelector(".game-page");
+var nextBtn = document.querySelector(".next-btn");
+var levelPage = document.querySelector(".level-page")
+var keepgBtn = document.querySelector(".keep-btn2")
+var endBtn = document.querySelector(".end-btn")
+var endPage = document.querySelector(".end-page")
+
+//Start game
+startBtn.onclick = ()=>{
+  welcomePage.classList.add("deactiveWelcome")
+  userInput.classList.add("activeInput");
+
 }
 
-// Returns the frequency (0 - 7) of a word to rate it's difficulty
-function getFrequencyAPI() {
-  var word;
-  var freq;
-  for (var i = 0; i < wordList.length; i++) {
-    fetch(
-      "https://wordsapiv1.p.rapidapi.com/words/" + wordList[i] + "/frequency",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-          "x-rapidapi-key":
-            "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
-        },
-      }
-    )
-      .then(function (response) {
-        try {
-          if (response.ok && response.status == 200) {
-            response.json().then(function (data) {
-              if (data.frequency.zipf != undefined) {
-                {
-                  chosenWord = data.word;
-                  freq = data.frequency.zipf;
-                  var wordScore = {
-                    word: chosenWord,
-                    score: freq,
-                  };
-                  getFrequency(wordScore);
-                }
-              }
-            });
-          } else {
-            console.log(
-              "Error Code: " + response.status + "\n" + response.statusText
-            );
-          }
-          console.log(easy, medium, hard);
-        } catch (error) {
-          console.log(
-            "Error Code: " + response.status + "\n" + response.statusText
-          );
-        }
-      })
-      .catch(function (err) {
-        console.error(err);
-      });
-  }
+//Continue game
+continueBtn.onclick = ()=>{
+  userInput.classList.remove("activeInput");
+  gamePage.classList.add("activeGame");
 }
 
-// Returns a global array of words created with the random words api
-function getArray(input) {
-  for (i = 0; i < input.length; i++) {
-    wordList.push(input[i]);
-  }
+//Next button to the level page
+nextBtn.onclick = ()=>{
+  gamePage.classList.remove("activeGame");
+  levelPage.classList.add("activeLevel")
 }
 
-// Returns a list of random words
-function getRandomWord() {
-  var words;
-  //  fetch("https://random-word-api.herokuapp.com/word?number=10")
-
-  fetch("https://random-words5.p.rapidapi.com/getMultipleRandom?count=20", {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "random-words5.p.rapidapi.com",
-      "x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
-    },
-  })
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          getArray(data);
-          console.log(wordList);
-          getFrequencyAPI();
-          console.log(easy, medium, hard);
-        });
-      }
-    })
-    .catch(function (err) {
-      console.error(err);
-    });
+//Keep going to the next game level
+keepgBtn.onclick =()=>{
+  levelPage.classList.remove("activeLevel");
+  gamePage.classList.add("activeGame");
 }
 
+//End button to end screen
+endBtn.onclick =()=>{
+  levelPage.classList.remove("activeLevel");
+  endPage.classList.add("activeEndpage")
+}
 
 getRandomWord();
 

@@ -9,3 +9,83 @@ h1 {
     font-size:32px;
 }
 
+html {
+    background-color: black;
+}
+
+.welcome-page,
+.user-input,
+.game-page,
+.end-page,
+.level-page,
+.highscore-page,
+.end-page {
+    transition: all 0.3s ease;
+}
+
+.welcome-page.deactiveWelcome,
+.user-input,
+.game-page, 
+.level-page,
+.highscore-page,
+.end-page{
+    opacity: 0;
+    width: 100%;
+}
+
+.user-input.activeInput {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-400px);
+    /* transform: translateY(-100%); */
+}
+
+.game-page.activeGame {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-850px);
+    /* transform: translateY(-175%); */
+}
+
+.level-page.activeLevel {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-1500px);
+}
+
+.end-page.activeEndpage {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-3000px);
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .welcome-page {
+        transform: translateY(-20%);
+    }
+
+
+    .user-input.activeInput {
+        transform: translateY(-120%);
+    }
+    
+    .game-page.activeGame {
+        transform: translateY(-175%);
+        /* transform: translateY(-175%); */
+    }
+    
+    .level-page.activeLevel {
+        transform: translateY(-210%);
+    }
+
+    .end-page.activeEndpage {
+        transform: translateY(-820%);
+    }
+    
+
+}
