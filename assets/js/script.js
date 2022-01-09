@@ -70,7 +70,7 @@ function updatePage(level) {
   console.log(level);
   for (i = 0; i < level.length; i++) {
     currentWord = level[i];
-    getDefinition(level[i]);
+    getDefinition(level[questionNum]);
    
   }
 }
