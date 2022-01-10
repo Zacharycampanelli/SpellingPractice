@@ -34,6 +34,8 @@ function setTimer() {
       timer--;
     } else {
       timerEl.textContent = 0;
+      levelPage.classList.add("activeLevel");
+      gamePage.classList.remove("activeGame");
       clearInterval(timeInterval);
     }
   }, 1000);
@@ -41,24 +43,23 @@ function setTimer() {
 
 //Gets definition of word
 async function getDefinition(word) {
-  console.log(word);
-  const res = await fetch(
+  const response = await fetch(
     "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
       word +
       "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
   );
-  const data = await res.json();
+  const data = await response.json();
   console.log(data);
   if (data[0] != undefined) {
     var definitionWord = data[0].shortdef[0];
+    definitionList.push(definitionWord);
+    console.log(definitionList);
+    definitionEl.textContent = definitionWord;
   }
 
   // ERROR HANDLING HERE
   else {
   }
-  console.log(definitionWord);
-  definitionList.push(definitionWord);
-  definitionEl.textContent = definitionWord;
 }
 // .catch(function (err) {
 //   console.error(err);
@@ -71,21 +72,10 @@ function updatePage(level) {
   for (i = 0; i < level.length; i++) {
     currentWord = level[i];
     getDefinition(level[questionNum]);
-   
   }
 }
 
-// Sorts words based on frequency score
-function scoreFrequency(item) {
-  console.log(item);
-  if (item.score > 4.5) {
-    easy.push(item.word);
-  } else if (item.score > 3) {
-    medium.push(item.word);
-  } else if (item.score > 0) {
-    hard.push(item.word);
-  }
-}
+
 
 // Returns a global array of words created with the random words api
 function getArray(list, input) {
@@ -94,80 +84,97 @@ function getArray(list, input) {
   }
 }
 
-// Returns the frequency (0 - 7) of a word to rate it's difficulty
-async function getFrequencyAPI() {
-  var word;
-  var freq;
-  for (var i = 0; i < wordList.length; i++) {
-    const res = await fetch(
-      "https://wordsapiv1.p.rapidapi.com/words/" + wordList[i] + "/frequency",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-          "x-rapidapi-key":
-            "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
-        },
-      }
-    )
-      .then(function (res) {
-        if (res.ok && res.status == 200) {
-          res.json().then(function (data) {
-            if (data.frequency.zipf != undefined) {
-              console.log(data.frequency.zipf);
-              freq = data.frequency.zipf;
-              chosenWord = data.word;
-              freq = data.frequency.zipf;
-              var wordScore = {
-                word: chosenWord,
-                score: freq,
-              };
-              frequencyList.push(wordScore);
-            }
-          });
-        } else {
-          console.log(
-            "Error Code: " + response.status + "\n" + response.statusText
-          );
-        }
-      })
-      .catch(function (err) {
-        console.error(err);
-      });
-  }
+// Sorts words based on frequency score
+// function scoreFrequency(item) {
+//   console.log(item);
+//   if (item.score > 4.5) {
+//     easy.push(item.word);
+//   } else if (item.score > 3) {
+//     medium.push(item.word);
+//   } else if (item.score > 0) {
+//     hard.push(item.word);
+//   }
+// }
+//
+// // Returns the frequency (0 - 7) of a word to rate it's difficulty
+// async function getFrequencyAPI() {
+//   var word;
+//   var freq;
+//   for (var i = 0; i < wordList.length; i++) {
+//     const res = await fetch(
+//       "https://wordsapiv1.p.rapidapi.com/words/" + wordList[i] + "/frequency",
+//       {
+//         method: "GET",
+//         headers: {
+//           "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+//           "x-rapidapi-key":
+//             "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
+//         },
+//       }
+//     )
+//       .then(function (res) {
+//         if (res.ok && res.status == 200) {
+//           res.json().then(function (data) {
+//             if (data.frequency.zipf != undefined) {
+//               console.log(data.frequency.zipf);
+//               freq = data.frequency.zipf;
+//               chosenWord = data.word;
+//               freq = data.frequency.zipf;
+//               var wordScore = {
+//                 word: chosenWord,
+//                 score: freq,
+//               };
+//               frequencyList.push(wordScore);
+//             }
+//           });
+//         } else {
+//           console.log(
+//             "Error Code: " + response.status + "\n" + response.statusText
+//           );
+//         }
+//       })
+//       .catch(function (err) {
+//         console.error(err);
+//       });
+//   }
 
-  for (var i = 0; i < frequencyList.length; i++) {
-    console.log(wordList, freq);
-    console.log(frequencyList[i]);
-    scoreFrequency(frequencyList[i]);
-  }
-  console.log(easy, medium);
-  updatePage(easy);
-}
+//   for (var i = 0; i < frequencyList.length; i++) {
+//     console.log(wordList, freq);
+//     console.log(frequencyList[i]);
+//     scoreFrequency(frequencyList[i]);
+//   }
+//   console.log(easy, medium);
+//   updatePage(easy);
+// }
 
 // Returns a list of random words
-function getRandomWord() {
-  var words;
+async function getRandomWord() {
+  const response = await fetch(
+    "https://random-words5.p.rapidapi.com/getMultipleRandom?count=5",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "random-words5.p.rapidapi.com",
+        "x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
+      },
+    }
+  );
+  const data = await response.json();
+  console.log(data);
+  // if
+  //   .then(function (response) {
+  //     if (response.ok) {
+  //       response.json().then(function (data) {
+  getArray(wordList, data);
 
-  fetch("https://random-words5.p.rapidapi.com/getMultipleRandom?count=5", {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "random-words5.p.rapidapi.com",
-      "x-rapidapi-key": "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
-    },
-  })
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          getArray(wordList, data);
-          console.log(wordList);
-          getFrequencyAPI();
-        });
-      }
-    })
-    .catch(function (err) {
-      console.error(err);
-    });
+  console.log(wordList);
+  for (var i = 0; i < wordList.length; i++) getDefinition(wordList[i]);
+  //     });
+  // //   }
+  // })
+  // .catch(function (err) {
+  //   console.error(err);
+  // });
 }
 
 //Start game
@@ -213,6 +220,7 @@ continueBtn.onclick = () => {
 
 //Next button to the level page
 nextBtn.onclick = () => {
+
   gamePage.classList.remove("activeGame");
   levelPage.classList.add("activeLevel");
 };
@@ -231,48 +239,38 @@ endBtn.onclick = () => {
 
 //onclick speech API
 
-var key= '0e3c3b4db7374feea8cf6109d290d6ec';
-  var src = 'this is working';
-  var hl = 'en-us';
-  var c = 'wav';
-  var f = '8khz_8bit_mono';
-  var ssml =  false;
+var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+var src = "this is working";
+var hl = "en-us";
+var c = "wav";
+var f = "8khz_8bit_mono";
+var ssml = false;
 
-  var speechButtonEl = document.getElementById("speech-button");
+var speechButtonEl = document.getElementById("speech-button");
 
-var url = "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src
+var url =
+  "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+  hl +
+  "&c=" +
+  c +
+  "&f=" +
+  f +
+  "&src=" +
+  src;
 
+speechButtonEl.onclick = function talk() {
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 
+  var audio = document.createElement("audio");
 
-speechButtonEl.onclick = function talk () {
+  speechButtonEl.appendChild(audio);
 
-fetch(url) 
- 
-
-  .then(response => {
-   console.log(response);
-  })
-  .catch(err => {
-    console.error(err);
- })
-
-
- var audio = document.createElement("audio");
-
- 
- speechButtonEl.appendChild(audio);
-
- var hearAudio = new Audio (url);
- hearAudio.play();
-
- } 
-
- 
-
-
-
- 
-
- 
-
- 
+  var hearAudio = new Audio(url);
+  hearAudio.play();
+};
