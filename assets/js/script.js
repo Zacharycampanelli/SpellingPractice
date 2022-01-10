@@ -16,9 +16,11 @@ var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
 var timer = 5;
 var currentLevel = 1;
-
+var currentWord;
 var wordList = [];
 var frequencyList = [];
+var definitionList = [];
+var questionNum = 0;
 
 var easy = [];
 var medium = [];
@@ -46,9 +48,9 @@ function showLevelScreen() {
 
 
 //Gets definition of word
-function getDefinition(word) {
+async function getDefinition(word) {
   console.log(word);
-  fetch(
+  const res = await fetch(
     "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
     word +
     "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
@@ -65,19 +67,35 @@ function getDefinition(word) {
     .catch(function (err) {
       console.error(err);
     });
+      word +
+      "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
+  );
+  const data = await res.json();
+  console.log(data);
+  if (data[0] != undefined) {
+    var definitionWord = data[0].shortdef[0];
+  }
+
+  // ERROR HANDLING HERE
+  else {
+  }
+  console.log(definitionWord);
+  definitionList.push(definitionWord);
+  definitionEl.textContent = definitionWord;
+
 }
+// .catch(function (err) {
+//   console.error(err);
+// });
+//}
 
 // Dynamically updates html page
 function updatePage(level) {
   console.log(level);
-
-  var questionNum = 0;
-  var currentWord;
-  if (currentLevel === 1) {
-    currentWord = level;
-
-    getDefinition(currentWord);
-    // definitionEl.innerHTML = ;
+  for (i = 0; i < level.length; i++) {
+    currentWord = level[i];
+    getDefinition(level[questionNum]);
+   
   }
 }
 
@@ -92,7 +110,6 @@ function scoreFrequency(item) {
     hard.push(item.word);
   }
 }
-
 
 // Returns a global array of words created with the random words api
 function getArray(list, input) {
@@ -121,7 +138,6 @@ async function getFrequencyAPI() {
         if (res.ok && res.status == 200) {
           res.json().then(function (data) {
             if (data.frequency.zipf != undefined) {
-              //   {
               console.log(data.frequency.zipf);
               freq = data.frequency.zipf;
               chosenWord = data.word;
@@ -131,8 +147,6 @@ async function getFrequencyAPI() {
                 score: freq,
               };
               frequencyList.push(wordScore);
-              //frequencyList.push(data.frequency.zipf);
-              //   }
             }
           });
         } else {
@@ -149,13 +163,11 @@ async function getFrequencyAPI() {
   for (var i = 0; i < frequencyList.length; i++) {
     console.log(wordList, freq);
     console.log(frequencyList[i]);
-    //scoreFrequency(wordList[i], frequencyList[i]);
     scoreFrequency(frequencyList[i]);
   }
   console.log(easy, medium);
   updatePage(easy);
 }
-
 
 // Returns a list of random words
 function getRandomWord() {
@@ -240,7 +252,6 @@ endBtn.onclick = () => {
   endPage.classList.add("activeEndpage");
 };
 
-
 //onclick speech API
 
 var key = '0e3c3b4db7374feea8cf6109d290d6ec';
@@ -282,8 +293,4 @@ speechButtonEl.onclick = function talk() {
 
 
 talk();
-
-
-
-
 
