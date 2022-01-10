@@ -14,7 +14,7 @@ var endPage = document.querySelector(".end-page");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
-var timer = 30;
+var timer = 5;
 var currentLevel = 1;
 
 var wordList = [];
@@ -33,17 +33,25 @@ function setTimer() {
     } else {
       timerEl.textContent = 0;
       clearInterval(timeInterval);
+      showLevelScreen();
     }
+
   }, 1000);
 }
+//shows the level screen
+function showLevelScreen() {
+  gamePage.classList.remove("activeGame");
+  levelPage.classList.add("activeLevel");
+}
+
 
 //Gets definition of word
 function getDefinition(word) {
   console.log(word);
   fetch(
     "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
-      word +
-      "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
+    word +
+    "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
   )
     .then(function (response) {
       if (response.ok) {
@@ -217,8 +225,7 @@ continueBtn.onclick = () => {
 
 //Next button to the level page
 nextBtn.onclick = () => {
-  gamePage.classList.remove("activeGame");
-  levelPage.classList.add("activeLevel");
+  showLevelScreen();
 };
 
 //Keep going to the next game level
@@ -236,48 +243,47 @@ endBtn.onclick = () => {
 
 //onclick speech API
 
-var key= '0e3c3b4db7374feea8cf6109d290d6ec';
-  var src = 'this is working';
-  var hl = 'en-us';
-  var c = 'wav';
-  var f = '8khz_8bit_mono';
-  var ssml =  false;
+var key = '0e3c3b4db7374feea8cf6109d290d6ec';
+var src = 'this is working';
+var hl = 'en-us';
+var c = 'wav';
+var f = '8khz_8bit_mono';
+var ssml = false;
 
-  var speechButtonEl = document.getElementById("speech-button");
+var speechButtonEl = document.getElementById("speech-button");
 
 var url = "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src
 
 
 
-speechButtonEl.onclick = function talk () {
+speechButtonEl.onclick = function talk() {
 
-fetch(url) 
- 
-
-  .then(response => {
-   console.log(response);
-  })
-  .catch(err => {
-    console.error(err);
- })
+  fetch(url)
 
 
- var audio = document.createElement("audio");
+    .then(response => {
+      console.log(response);
+    })
+    .catch(err => {
+      console.error(err);
+    })
 
- 
- speechButtonEl.appendChild(audio);
 
- var hearAudio = new Audio (url);
- hearAudio.play();
+  var audio = document.createElement("audio");
 
- } 
 
- 
+  speechButtonEl.appendChild(audio);
 
- talk ();
+  var hearAudio = new Audio(url);
+  hearAudio.play();
 
- 
+}
 
- 
 
- 
+
+talk();
+
+
+
+
+
