@@ -31,7 +31,7 @@ html {
 .end-page{
     opacity: 0;
     width: 100%;
-}
+} 
 
 .user-input.activeInput {
     z-index: 5;
