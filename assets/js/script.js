@@ -34,6 +34,8 @@ function setTimer() {
       timer--;
     } else {
       timerEl.textContent = 0;
+      levelPage.classList.add("activeLevel");
+      gamePage.classList.remove("activeGame");
       clearInterval(timeInterval);
     }
   }, 1000);
@@ -71,7 +73,6 @@ function updatePage(level) {
   for (i = 0; i < level.length; i++) {
     currentWord = level[i];
     getDefinition(level[questionNum]);
-   
   }
 }
 
@@ -231,48 +232,38 @@ endBtn.onclick = () => {
 
 //onclick speech API
 
-var key= '0e3c3b4db7374feea8cf6109d290d6ec';
-  var src = 'this is working';
-  var hl = 'en-us';
-  var c = 'wav';
-  var f = '8khz_8bit_mono';
-  var ssml =  false;
+var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+var src = "this is working";
+var hl = "en-us";
+var c = "wav";
+var f = "8khz_8bit_mono";
+var ssml = false;
 
-  var speechButtonEl = document.getElementById("speech-button");
+var speechButtonEl = document.getElementById("speech-button");
 
-var url = "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" + hl + "&c=" + c + "&f=" + f + "&src=" + src
+var url =
+  "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+  hl +
+  "&c=" +
+  c +
+  "&f=" +
+  f +
+  "&src=" +
+  src;
 
+speechButtonEl.onclick = function talk() {
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 
+  var audio = document.createElement("audio");
 
-speechButtonEl.onclick = function talk () {
+  speechButtonEl.appendChild(audio);
 
-fetch(url) 
- 
-
-  .then(response => {
-   console.log(response);
-  })
-  .catch(err => {
-    console.error(err);
- })
-
-
- var audio = document.createElement("audio");
-
- 
- speechButtonEl.appendChild(audio);
-
- var hearAudio = new Audio (url);
- hearAudio.play();
-
- } 
-
- 
-
-
-
- 
-
- 
-
- 
+  var hearAudio = new Audio(url);
+  hearAudio.play();
+};
