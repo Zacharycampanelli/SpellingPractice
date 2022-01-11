@@ -1,6 +1,9 @@
 var enterButtonEl = document.querySelector("#enter-button");
 var definitionEl = document.querySelector("#definition");
 var definitionEl2 = document.querySelector("#definition2");
+var definitionEl3 = document.querySelector("#definition3");
+var definitionEl4 = document.querySelector("#definition4");
+var definitionEl5 = document.querySelector("#definition5");
 
 var startBtn = document.querySelector(".start-btn");
 var welcomePage = document.querySelector(".welcome-page");
@@ -72,6 +75,7 @@ async function getDefinition(list) {
       definitionList.push(wordObj);
       console.log(definitionList);
       definitionEl.textContent = definitionList[0].definition;
+     
       //currentWord = wordList[questionNum];
       //console.log(currentWord);
     }
@@ -87,16 +91,16 @@ async function getDefinition(list) {
 //}
 
 // Dynamically updates html page
-function updatePage() {
-  //currentWord = definitionList[questionNum]//.word;
-  definitionEl.textContent = definitionList[questionNum]; //.definition;
-  console.log(currentWord, questionNum);
-  questionNum++;
-  // for (i = 0; i < level.length; i++) {
+// function updatePage() {
+//   //currentWord = definitionList[questionNum]//.word;
+//   definitionEl.textContent = definitionList[questionNum]; //.definition;
+//   console.log(currentWord, questionNum);
+//   questionNum++;
+//   // for (i = 0; i < level.length; i++) {
   //   currentWord = level[i];
   //   getDefinition(level[questionNum]);
   // }
-}
+// }
 
 // Returns a global array of words created with the random words api
 function getArray(list, input) {
@@ -240,7 +244,8 @@ continueBtn.onclick = () => {
   getDefinition(wordList);
   currentWord = wordList[0];
   console.log(wordList, currentWord);
-  updatePage();
+  definitionEl.textContent = definitionList[questionNum];
+  // updatePage();
 };
 
 //Submit button
@@ -272,16 +277,19 @@ nextBtn.onclick = () => {
 nextBtn2.onclick = () => {
   gamePage2.classList.remove("activeGame2");
   gamePage3.classList.add("activeGame3");
+  definitionEl3.textContent = definitionList[2].definition;
 };
 
 nextBtn3.onclick = () => {
   gamePage3.classList.remove("activeGame3");
   gamePage4.classList.add("activeGame4");
+  definitionEl4.textContent = definitionList[3].definition;
 };
 
 nextBtn4.onclick = () => {
   gamePage4.classList.remove("activeGame4");
   gamePage5.classList.add("activeGame5");
+  definitionEl5.textContent = definitionList[4].definition;
 };
 
 nextBtn5.onclick = () => {
