@@ -308,7 +308,7 @@ endBtn.onclick = () => {
 //onclick speech API
 
 var key = "0e3c3b4db7374feea8cf6109d290d6ec";
-var src = currentWord;
+var src = "the button is working";
 var hl = "en-us";
 var c = "wav";
 var f = "8khz_8bit_mono";
