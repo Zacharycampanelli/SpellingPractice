@@ -1,5 +1,9 @@
 var enterButtonEl = document.querySelector("#enter-button");
 var definitionEl = document.querySelector("#definition");
+var definitionEl2 = document.querySelector("#definition2");
+var definitionEl3 = document.querySelector("#definition3");
+var definitionEl4 = document.querySelector("#definition4");
+var definitionEl5 = document.querySelector("#definition5");
 
 var startBtn = document.querySelector(".start-btn");
 var welcomePage = document.querySelector(".welcome-page");
@@ -51,34 +55,35 @@ function setTimer() {
 }
 
 //Gets definition of word
-async function getDefinition(pickedWord) {
-  const response = await fetch(
-    "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
-      pickedWord +
-      "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
-  );
-  const data = await response.json();
-  console.log(data);
-  if (data[0] != undefined) {
-    var definitionWord = data[0].shortdef[0];
+async function getDefinition(list) {
+  console.log(list);
+  for (i = 0; i < 5; i++) {
+    const response = await fetch(
+      "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
+        list[i] +
+        "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
+    );
+    const data = await response.json();
+    //console.log(data);
+    if (data[0] != undefined) {
+      var definitionWord = data[0].shortdef[0];
 
-    var wordObj = {
-      word: pickedWord,
-      definition: definitionWord,
-    };
-    definitionList.push(wordObj);
-    console.log(definitionList);
-    definitionEl.textContent = definitionWord;
-    //currentWord = wordList[questionNum];
-    //console.log(currentWord);
-    
- 
-  }
+      var wordObj = {
+        word: list[i],
+        definition: definitionWord,
+      };
+      definitionList.push(wordObj);
+      console.log(definitionList);
+      definitionEl.textContent = definitionList[0].definition;
+     
+      //currentWord = wordList[questionNum];
+      //console.log(currentWord);
+    }
 
-  // ERROR HANDLING HERE
-  else {
+    // ERROR HANDLING HERE
+    else {
+    }
   }
-  return;
 }
 // .catch(function (err) {
 //   console.error(err);
@@ -86,16 +91,16 @@ async function getDefinition(pickedWord) {
 //}
 
 // Dynamically updates html page
-function updatePage() {
-  //currentWord = definitionList[questionNum]//.word;
-  definitionEl.textContent = definitionList[questionNum]//.definition;
-  console.log(currentWord, questionNum)
-  questionNum++;
-  // for (i = 0; i < level.length; i++) {
+// function updatePage() {
+//   //currentWord = definitionList[questionNum]//.word;
+//   definitionEl.textContent = definitionList[questionNum]; //.definition;
+//   console.log(currentWord, questionNum);
+//   questionNum++;
+//   // for (i = 0; i < level.length; i++) {
   //   currentWord = level[i];
   //   getDefinition(level[questionNum]);
   // }
-}
+// }
 
 // Returns a global array of words created with the random words api
 function getArray(list, input) {
@@ -188,7 +193,7 @@ async function getRandomWord() {
   getArray(wordList, data);
 
   console.log(wordList);
- // for (var i = 0; i < wordList.length; i++) getDefinition(wordList[i]);
+  // for (var i = 0; i < wordList.length; i++) getDefinition(wordList[i]);
   //     });
   // //   }
   // })
@@ -236,10 +241,11 @@ continueBtn.onclick = () => {
   userInput.classList.remove("activeInput");
   gamePage.classList.add("activeGame");
   setTimer();
-  getDefinition(wordList[0])
-  currentWord = wordList[0]
-  console.log(wordList, currentWord)
-  updatePage();
+  getDefinition(wordList);
+  currentWord = wordList[0];
+  console.log(wordList, currentWord);
+  definitionEl.textContent = definitionList[questionNum];
+  // updatePage();
 };
 
 //Submit button
@@ -265,21 +271,25 @@ submitBtn.onclick = function () {
 nextBtn.onclick = () => {
   gamePage.classList.remove("activeGame");
   gamePage2.classList.add("activeGame2");
+  definitionEl2.textContent = definitionList[1].definition;
 };
 
 nextBtn2.onclick = () => {
   gamePage2.classList.remove("activeGame2");
   gamePage3.classList.add("activeGame3");
+  definitionEl3.textContent = definitionList[2].definition;
 };
 
 nextBtn3.onclick = () => {
   gamePage3.classList.remove("activeGame3");
   gamePage4.classList.add("activeGame4");
+  definitionEl4.textContent = definitionList[3].definition;
 };
 
 nextBtn4.onclick = () => {
   gamePage4.classList.remove("activeGame4");
   gamePage5.classList.add("activeGame5");
+  definitionEl5.textContent = definitionList[4].definition;
 };
 
 nextBtn5.onclick = () => {
