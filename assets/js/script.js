@@ -62,21 +62,23 @@ async function getDefinition(pickedWord) {
   if (data[0] != undefined) {
     var definitionWord = data[0].shortdef[0];
 
-    const wordObj = {
+    var wordObj = {
       word: pickedWord,
       definition: definitionWord,
     };
     definitionList.push(wordObj);
     console.log(definitionList);
-    //definitionEl.textContent = definitionWord;
-    currentWord = wordList[0];
-    console.log(currentWord);
-    updatePage(definitionList);
+    definitionEl.textContent = definitionWord;
+    //currentWord = wordList[questionNum];
+    //console.log(currentWord);
+    
+ 
   }
 
   // ERROR HANDLING HERE
   else {
   }
+  return;
 }
 // .catch(function (err) {
 //   console.error(err);
@@ -84,9 +86,11 @@ async function getDefinition(pickedWord) {
 //}
 
 // Dynamically updates html page
-function updatePage(level) {
-  currentWord = level[questionNum].word;
-  definitionEl.textContent = level[questionNum].definition;
+function updatePage() {
+  //currentWord = definitionList[questionNum]//.word;
+  definitionEl.textContent = definitionList[questionNum]//.definition;
+  console.log(currentWord, questionNum)
+  questionNum++;
   // for (i = 0; i < level.length; i++) {
   //   currentWord = level[i];
   //   getDefinition(level[questionNum]);
@@ -184,7 +188,7 @@ async function getRandomWord() {
   getArray(wordList, data);
 
   console.log(wordList);
-  for (var i = 0; i < wordList.length; i++) getDefinition(wordList[i]);
+ // for (var i = 0; i < wordList.length; i++) getDefinition(wordList[i]);
   //     });
   // //   }
   // })
@@ -197,6 +201,7 @@ async function getRandomWord() {
 startBtn.onclick = () => {
   welcomePage.classList.add("deactiveWelcome");
   userInput.classList.add("activeInput");
+  getRandomWord();
 };
 
 // add selectors for button and input
@@ -231,9 +236,10 @@ continueBtn.onclick = () => {
   userInput.classList.remove("activeInput");
   gamePage.classList.add("activeGame");
   setTimer();
-  getRandomWord().then(function () {
-    console.log("here");
-  });
+  getDefinition(wordList[0])
+  currentWord = wordList[0]
+  console.log(wordList, currentWord)
+  updatePage();
 };
 
 //Submit button
