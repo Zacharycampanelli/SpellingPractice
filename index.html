@@ -23,14 +23,14 @@
     </header> -->
         <!-- Welcome Page -->
         <section class="section is-large welcome-page">
-            <div class="column is-mobile box">
+            <div class="column is-mobile box" >
                 <div class="secondary-title column is-11 is-offset-1">
-                    <h1 class="page-title column is-full title">Spelling Practice</h1>
-                    <h2 class="rules title">Rules of Game</h2>
-                    <div>
-                        <p> In this game, you will hear a word by clicking the text bubble icon on the next page.  You will need to spell the word correctly.  Your goal is to spell as many words correctly as you can within 30 seconds.  Good luck!  </p>
+                    <h1 class="page-title column is-full title" id = "medal">Spelling Practice</h1>
+                    <h3 class="rules-title"><em><b>Rules of the Game</b></em></h3>
+                    <div class = "rules">
+                        <p> In this game, you will hear a word by clicking the text bubble.  Enter the word (spelled correctly!) into the input box and press submit.   Your goal is to spell as many words correctly as you can within 60 seconds.  Good luck!  </p>
                     </div>
-                    <div class="column">
+                    <div class="column" id = "start-button">
                         <button class="button is-link is-align-items-center start-btn">Start</button>
                     </div>
                 </div>
@@ -40,27 +40,33 @@
         <!-- user name page -->
 
         <section class="section is-large user-input">
-            <div class="column is-mobile box">
+            <div class="column is-mobile box" id = "medal">
                 <div class="column is-mobile box">
                     <i class="fas fa-medal is-size-1"></i>
                 </div>
                 <div class="column is-mobile box">
-                    <h1 class="title" id = "welcome" >Welcome to Spell Practice!</h1>
+                    <h1 class="title" id = "welcome" > 
+                    Please enter your name, then press "ENTER" </h1>
+                    <h2 class="title2" id = "welcome2"> When you are finished, press "CONTINUE"</h2>
                 </div>
                 <div>
                     <input id="input-name" class="input" type="text" placeholder="Enter Name">
-                    <div class="column">
-                        <div class="field is-grouped">
-                            <p class="control">
+                    <div class="level">
+                        <div class="level-left">
+                            <!-- <p class="control"> -->
                               <button class="button is-link" id="enter-button">
                                 Enter
                               </button>
-                            </p>
-                            <p class="control">
+                              </div>
+            
+                            <!-- </p> -->
+                            <div class="level-right">
+                            <!-- <p class="control"> -->
                               <button class="button is-link continue-btn">
                                 Continue
                               </button>
-                            </p>
+                            </div>
+                            <!-- </p> -->
                         <!-- <button class="button is-link" id="enter-button">Enter</button> -->
                     </div>
 
@@ -82,7 +88,7 @@
                     </div>
                 </div>
                 <!-- Game section -->
-                <div class="box">
+                <div class="box" id = "definition-box">
                     <div class="column">
                         <div class="is-pulled-right">
                             <div class="box has-background-primary">
@@ -90,8 +96,8 @@
                             </div>
                         </div>
                         <div class="column">
-                            <h4 class="title is-4">Definition</h4>
-                            <p id="definition">
+                            <h3 class="title is-4"><b>Definition:</b></h3>
+                            <p id="definition1">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, enim minus. Excepturi ducimus delectus ex sint aperiam distinctio dolores harum officiis corporis, aliquam voluptatem sapiente, nemo hic id dignissimos quo.
                             </p>   
                         </div>          
@@ -141,7 +147,7 @@
                     </div>
                 </div>
                 <!-- Game section -->
-                <div class="box">
+                <div class="box" id= "definition-box">
                     <div class="column">
                         <div class="is-pulled-right">
                             <div class="box has-background-primary">
@@ -149,7 +155,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            <h4 class="title is-4">Definition</h4>
+                            <h3 class="title is-4"><b>Definition:</b></h3>
                             <p id="definition2">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, enim minus. Excepturi ducimus delectus ex sint aperiam distinctio dolores harum officiis corporis, aliquam voluptatem sapiente, nemo hic id dignissimos quo.
                             </p>   
@@ -200,7 +206,7 @@
                     </div>
                 </div>
                 <!-- Game section -->
-                <div class="box">
+                <div class="box" id= "definition-box">
                     <div class="column">
                         <div class="is-pulled-right">
                             <div class="box has-background-primary">
@@ -208,7 +214,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            <h4 class="title is-4">Definition</h4>
+                            <h3 class="title is-4"><b>Definition:</b></h3>
                             <p id="definition3">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, enim minus. Excepturi ducimus delectus ex sint aperiam distinctio dolores harum officiis corporis, aliquam voluptatem sapiente, nemo hic id dignissimos quo.
                             </p>   
@@ -259,7 +265,7 @@
                     </div>
                 </div>
                 <!-- Game section -->
-                <div class="box">
+                <div class="box" id= "definition-box">
                     <div class="column">
                         <div class="is-pulled-right">
                             <div class="box has-background-primary">
@@ -267,7 +273,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            <h4 class="title is-4">Definition</h4>
+                            <h3 class="title is-4"><b>Definition:</b></h3>
                             <p id="definition4">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, enim minus. Excepturi ducimus delectus ex sint aperiam distinctio dolores harum officiis corporis, aliquam voluptatem sapiente, nemo hic id dignissimos quo.
                             </p>   
@@ -318,7 +324,7 @@
                     </div>
                 </div>
                 <!-- Game section -->
-                <div class="box">
+                <div class="box" id= "definition-box">
                     <div class="column">
                         <div class="is-pulled-right">
                             <div class="box has-background-primary">
@@ -326,7 +332,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            <h4 class="title is-4">Definition</h4>
+                            <h3 class="title is-4"><b>Definition:</b></h3>
                             <p id="definition5">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, enim minus. Excepturi ducimus delectus ex sint aperiam distinctio dolores harum officiis corporis, aliquam voluptatem sapiente, nemo hic id dignissimos quo.
                             </p>   
@@ -372,35 +378,35 @@
                     </div>
                 </section>
                 <section class = "section">
-                   <div class="columns is-mobile box">
+                   <div class="columns is-mobile box" id = "medal">
                        <div class="column is-half"></div> 
                        <i class="fas fa-medal is-size-1"></i>
                    </div>
-                   <div class="column is-mobile box mt-3">
+                   <div class="column is-mobile box mt-3" id = "level5">
                        <div class="column is-half"></div> 
                        <h1 class="Level5"><strong>Level 5</strong></h1>
                    </div>
-                   <div class="column is-mobile box mt-3">
+                   <div class="column is-mobile box mt-3" id = "level4">
                        <div class="column is-half"></div> 
                        <h1 class="Level4"><strong>Level 4</strong></h1>
                    </div>
-                   <div class="column is-mobile box mt-3">
+                   <div class="column is-mobile box mt-3" id = "level3">
                        <div class="column is-half"></div> 
                        <h1 class="Level3"><strong>Level 3</strong></h1>
                    </div>
-                   <div class="column is-mobile box mt-3">
+                   <div class="column is-mobile box mt-3" id = "level2">
                        <div class="column is-half"></div> 
                        <h1 class="Level2"><strong>Level 2</strong></h1>
                    </div>
-                   <div class="column is-mobile box mt-3">
+                   <div class="column is-mobile box mt-3" id = "level1">
                        <div class="column is-half"></div> 
                        <h1 class="Level1"><strong>Level 1</strong></h1>
                    </div>
                    <!-- Next button -->
                     <div class ="level">
                         <div class="column align level-left">
-                            <button class="button is-link is-align-items-center keep-btn2">Keep going</button>
-                            <button class="button is-danger is-align-items-center end-btn">End Game</button>
+                            <button class="button is-black is-align-items-center keep-btn2">Keep going</button>
+                            <button class="button is-black is-outlined is-align-items-center end-btn">End Game</button>
                         </div>
                     </div>  
                 </section>

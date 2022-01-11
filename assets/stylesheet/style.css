@@ -9,6 +9,11 @@ h1 {
     font-size:32px;
 }
 
+h2 {
+    text-align:center;
+
+}
+
 html {
     background-color: black;
 }
@@ -98,6 +103,62 @@ html {
 
 .timer {
     color:white;
+}
+.level {
+    margin-top:20px;
+}
+
+#level1 {
+    background-color:yellow;
+}
+
+#level2 {
+    background-color: orange;
+}
+
+#level3 {
+    background-color: green;
+}
+
+#level4 {
+    background-color: blue;
+}
+
+#level5 {
+    background-color: red;
+}
+
+#medal {
+    background-color:silver;
+}
+
+
+.rules {
+margin-top: 10px;
+}
+
+#start-button {
+    margin-top: 20px;
+}
+
+#user-name {
+    background-color:silver;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    
+}
+
+#definition-box {
+    background-color:silver;
+}
+
+#definition1,
+#definition2,
+#definition3,
+#definition4,
+#definition5 {
+    font-size: 32px;
 }
 
 /* Mobile devices (390px and up)
