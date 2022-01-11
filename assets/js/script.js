@@ -19,6 +19,7 @@ var levelPage = document.querySelector(".level-page");
 var keepgBtn = document.querySelector(".keep-btn2");
 var endBtn = document.querySelector(".end-btn");
 var endPage = document.querySelector(".end-page");
+var submitBtn = document.querySelector(".submit");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
@@ -26,13 +27,13 @@ var timer = 30;
 var currentLevel = 1;
 var currentWord;
 var wordList = [];
-var frequencyList = [];
+// var frequencyList = [];
 var definitionList = [];
 var questionNum = 0;
 
-var easy = [];
-var medium = [];
-var hard = [];
+// var easy = [];
+// var medium = [];
+// var hard = [];
 
 // Timer Function
 function setTimer() {
@@ -63,6 +64,8 @@ async function getDefinition(word) {
     definitionList.push(definitionWord);
     console.log(definitionList);
     definitionEl.textContent = definitionWord;
+    currentWord = wordList[0];
+    console.log(currentWord);
   }
 
   // ERROR HANDLING HERE
@@ -82,8 +85,6 @@ function updatePage(level) {
     getDefinition(level[questionNum]);
   }
 }
-
-
 
 // Returns a global array of words created with the random words api
 function getArray(list, input) {
@@ -224,6 +225,15 @@ continueBtn.onclick = () => {
   gamePage.classList.add("activeGame");
   setTimer();
   getRandomWord();
+};
+
+//Submit button
+submitBtn.onclick = function () {
+  if (currentWord == document.getElementById("userAnswer").value) {
+    console.log("success");
+  } else {
+    console.log("failure");
+  }
 };
 
 //Next button to the level page
