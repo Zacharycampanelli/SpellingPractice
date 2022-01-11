@@ -13,8 +13,8 @@ var gamePage5 = document.querySelector(".game-page5");
 var nextBtn = document.querySelector(".next-btn");
 var nextBtn2 = document.querySelector(".next-btn2");
 var nextBtn3 = document.querySelector(".next-btn3");
-var nextBtn4 = document.querySelector(".next-btn4")
-var nextBtn5 = document.querySelector(".next-btn5")
+var nextBtn4 = document.querySelector(".next-btn4");
+var nextBtn5 = document.querySelector(".next-btn5");
 var levelPage = document.querySelector(".level-page");
 var keepgBtn = document.querySelector(".keep-btn2");
 var endBtn = document.querySelector(".end-btn");
@@ -51,21 +51,27 @@ function setTimer() {
 }
 
 //Gets definition of word
-async function getDefinition(word) {
+async function getDefinition(pickedWord) {
   const response = await fetch(
     "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
-      word +
+      pickedWord +
       "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
   );
   const data = await response.json();
   console.log(data);
   if (data[0] != undefined) {
     var definitionWord = data[0].shortdef[0];
-    definitionList.push(definitionWord);
+
+    const wordObj = {
+      word: pickedWord,
+      definition: definitionWord,
+    };
+    definitionList.push(wordObj);
     console.log(definitionList);
-    definitionEl.textContent = definitionWord;
+    //definitionEl.textContent = definitionWord;
     currentWord = wordList[0];
     console.log(currentWord);
+    updatePage(definitionList);
   }
 
   // ERROR HANDLING HERE
@@ -79,11 +85,12 @@ async function getDefinition(word) {
 
 // Dynamically updates html page
 function updatePage(level) {
-  console.log(level);
-  for (i = 0; i < level.length; i++) {
-    currentWord = level[i];
-    getDefinition(level[questionNum]);
-  }
+  currentWord = level[questionNum].word;
+  definitionEl.textContent = level[questionNum].definition;
+  // for (i = 0; i < level.length; i++) {
+  //   currentWord = level[i];
+  //   getDefinition(level[questionNum]);
+  // }
 }
 
 // Returns a global array of words created with the random words api
@@ -224,7 +231,9 @@ continueBtn.onclick = () => {
   userInput.classList.remove("activeInput");
   gamePage.classList.add("activeGame");
   setTimer();
-  getRandomWord();
+  getRandomWord().then(function () {
+    console.log("here");
+  });
 };
 
 //Submit button
@@ -254,23 +263,23 @@ nextBtn.onclick = () => {
 
 nextBtn2.onclick = () => {
   gamePage2.classList.remove("activeGame2");
-  gamePage3.classList.add("activeGame3")
-}
+  gamePage3.classList.add("activeGame3");
+};
 
 nextBtn3.onclick = () => {
   gamePage3.classList.remove("activeGame3");
-  gamePage4.classList.add("activeGame4")
-}
+  gamePage4.classList.add("activeGame4");
+};
 
 nextBtn4.onclick = () => {
   gamePage4.classList.remove("activeGame4");
-  gamePage5.classList.add("activeGame5")
-}
+  gamePage5.classList.add("activeGame5");
+};
 
 nextBtn5.onclick = () => {
   gamePage5.classList.remove("activeGame5");
-  levelPage.classList.add("activeLevel")
-}
+  levelPage.classList.add("activeLevel");
+};
 
 // //Result level
 // function activeLvlPage() {
@@ -311,7 +320,7 @@ var url =
   "&src=" +
   src;
 
-  speechButtonEl.onclick = function talk() {
+speechButtonEl.onclick = function talk() {
   fetch(url)
     .then((response) => {
       console.log(response);
