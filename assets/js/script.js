@@ -200,7 +200,7 @@ var username = document.querySelector("#user-name");
 // have the value of the input be added to the Welcome...
 document.getElementById("enter-button").onclick = function () {
   document.getElementById("welcome").textContent =
-    "Welcome to Spell Practice " + inputName.value + " !";
+    "Welcome to Spelling Practice, " + inputName.value + " !";
 
   // select other areas that need a username
   document.getElementById("user-name").textContent = inputName.value;

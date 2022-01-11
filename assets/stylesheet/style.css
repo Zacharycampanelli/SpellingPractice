@@ -132,6 +132,35 @@ html {
     background-color:silver;
 }
 
+
+.rules {
+margin-top: 10px;
+}
+
+#start-button {
+    margin-top: 20px;
+}
+
+#user-name {
+    background-color:silver;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    
+}
+
+#definition-box {
+    background-color:silver;
+}
+
+#definition1,
+#definition2,
+#definition3,
+#definition4,
+#definition5 {
+    font-size: 32px;
+}
+
 /* Mobile devices (390px and up)
 @media only sreen and (min-width: 390px) {
 
