@@ -6,7 +6,15 @@ var welcomePage = document.querySelector(".welcome-page");
 var userInput = document.querySelector(".user-input");
 var continueBtn = document.querySelector(".continue-btn");
 var gamePage = document.querySelector(".game-page");
+var gamePage2 = document.querySelector(".game-page2");
+var gamePage3 = document.querySelector(".game-page3");
+var gamePage4 = document.querySelector(".game-page4");
+var gamePage5 = document.querySelector(".game-page5");
 var nextBtn = document.querySelector(".next-btn");
+var nextBtn2 = document.querySelector(".next-btn2");
+var nextBtn3 = document.querySelector(".next-btn3");
+var nextBtn4 = document.querySelector(".next-btn4")
+var nextBtn5 = document.querySelector(".next-btn5")
 var levelPage = document.querySelector(".level-page");
 var keepgBtn = document.querySelector(".keep-btn2");
 var endBtn = document.querySelector(".end-btn");
@@ -219,11 +227,46 @@ continueBtn.onclick = () => {
 };
 
 //Next button to the level page
-nextBtn.onclick = () => {
+// nextBtn.onclick = () => {
+//   if(questionNum < -1){
+//     questionNum++;
+//     getDefinition(questionNum);
+//   }else {
+//     activeLvlPage();
+//   }
+// };
 
+// Next button to the level page
+nextBtn.onclick = () => {
   gamePage.classList.remove("activeGame");
-  levelPage.classList.add("activeLevel");
+  gamePage2.classList.add("activeGame2");
 };
+
+nextBtn2.onclick = () => {
+  gamePage2.classList.remove("activeGame2");
+  gamePage3.classList.add("activeGame3")
+}
+
+nextBtn3.onclick = () => {
+  gamePage3.classList.remove("activeGame3");
+  gamePage4.classList.add("activeGame4")
+}
+
+nextBtn4.onclick = () => {
+  gamePage4.classList.remove("activeGame4");
+  gamePage5.classList.add("activeGame5")
+}
+
+nextBtn5.onclick = () => {
+  gamePage5.classList.remove("activeGame5");
+  levelPage.classList.add("activeLevel")
+}
+
+// //Result level
+// function activeLvlPage() {
+//   gamePage.classList.remove("activeGame");
+//   levelPage.classList.add("activeLevel");
+// }
 
 //Keep going to the next game level
 keepgBtn.onclick = () => {
@@ -258,7 +301,7 @@ var url =
   "&src=" +
   src;
 
-speechButtonEl.onclick = function talk() {
+  speechButtonEl.onclick = function talk() {
   fetch(url)
     .then((response) => {
       console.log(response);
