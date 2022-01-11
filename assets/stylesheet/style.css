@@ -16,6 +16,10 @@ html {
 .welcome-page,
 .user-input,
 .game-page,
+.game-page2,
+.game-page3,
+.game-page4,
+.game-page5,
 .end-page,
 .level-page,
 .highscore-page,
@@ -25,7 +29,11 @@ html {
 
 .welcome-page.deactiveWelcome,
 .user-input,
-.game-page, 
+.game-page,
+.game-page2,
+.game-page3,
+.game-page4,
+.game-page5, 
 .level-page,
 .highscore-page,
 .end-page{
@@ -38,34 +46,96 @@ html {
     opacity: 1;
     width: 100%;
     transform: translateY(-400px);
-    /* transform: translateY(-100%); */
 }
 
 .game-page.activeGame {
     z-index: 5;
     opacity: 1;
     width: 100%;
-    transform: translateY(-850px);
-    /* transform: translateY(-175%); */
+    transform: translateY(-845px);
+}
+
+.game-page2.activeGame2 {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-1430px);
+}
+
+.game-page3.activeGame3 {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-2075px);
+}
+.game-page4.activeGame4 {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-2700px);
+}
+
+.game-page5.activeGame5 {
+    z-index: 5;
+    opacity: 1;
+    width: 100%;
+    transform: translateY(-3340px);
 }
 
 .level-page.activeLevel {
     z-index: 5;
     opacity: 1;
     width: 100%;
-    transform: translateY(-1500px);
+    transform: translateY(-3980px);
 }
 
 .end-page.activeEndpage {
     z-index: 5;
     opacity: 1;
     width: 100%;
-    transform: translateY(-3000px);
+    transform: translateY(-5250px);
 }
 
 .timer {
     color:white;
 }
+
+/* Mobile devices (390px and up)
+@media only sreen and (min-width: 390px) {
+
+.user-input.activeInput {
+    transform: translateY(-467px);
+}
+
+.game-page.activeGame {
+    transform: translateY(-934px);
+}
+
+.game-page2.activeGame2 {
+    transform: translateY(-1706px);
+}
+
+.game-page3.activeGame3 {
+    transform: translateY(-2572px);
+}
+
+.game-page4.activeGame4 {
+    transform: translateY(-3441px);
+}
+
+.game-page5.activeGame5 {
+    transform: translateY(-4308px);
+}
+
+.level-page.activeLevel {
+    transform: translateY(-5198px);
+}
+
+.end-page.activeEndpage {
+    transform: translateY(-6615px);
+}
+    
+} */
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
@@ -73,22 +143,35 @@ html {
         transform: translateY(-20%);
     }
 
-
     .user-input.activeInput {
         transform: translateY(-120%);
     }
     
     .game-page.activeGame {
-        transform: translateY(-175%);
-        /* transform: translateY(-175%); */
+        transform: translateY(-184%);
+    }
+
+    .game-page2.activeGame2 {
+        transform: translateY(-3034px);
     }
     
+    .game-page3.activeGame3 {
+        transform: translateY(-4149px);
+    }
+    .game-page4.activeGame4 {
+        transform: translateY(-5261px);
+    }
+    
+    .game-page5.activeGame5 {
+        transform: translateY(-6377px);
+    }
+
     .level-page.activeLevel {
-        transform: translateY(-210%);
+        transform: translateY(-7556px);
     }
 
     .end-page.activeEndpage {
-        transform: translateY(-820%);
+        transform: translateY(-9811px);
     }
     
 
