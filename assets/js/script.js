@@ -23,7 +23,7 @@ var submitBtn = document.querySelector(".submit");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
-var timer = 30;
+var timer = 60;
 var currentLevel = 1;
 var currentWord;
 var wordList = [];
@@ -293,7 +293,7 @@ endBtn.onclick = () => {
 //onclick speech API
 
 var key = "0e3c3b4db7374feea8cf6109d290d6ec";
-var src = "this is working";
+var src = currentWord;
 var hl = "en-us";
 var c = "wav";
 var f = "8khz_8bit_mono";
@@ -310,6 +310,8 @@ var url =
   f +
   "&src=" +
   src;
+
+  console.log(url);
 
   speechButtonEl.onclick = function talk() {
   fetch(url)
