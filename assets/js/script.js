@@ -29,6 +29,10 @@ var submitBtn3 = document.querySelector(".submit3");
 var submitBtn4 = document.querySelector(".submit4");
 var submitBtn5 = document.querySelector(".submit5");
 var speechButtonEl = document.getElementById("speech-button");
+var speechButtonEl2 = document.getElementById("speech-button2");
+var speechButtonEl3 = document.getElementById("speech-button3");
+var speechButtonEl4 = document.getElementById("speech-button4");
+var speechButtonEl5 = document.getElementById("speech-button5");
 
 
 var titleEl = document.querySelector(".title");
@@ -309,30 +313,35 @@ submitBtn5.onclick = function () {
 nextBtn.onclick = () => {
   gamePage.classList.remove("activeGame");
   gamePage2.classList.add("activeGame2");
+  currentWord = wordList[1];
   definitionEl2.textContent = definitionList[1].definition;
 };
 
 nextBtn2.onclick = () => {
   gamePage2.classList.remove("activeGame2");
   gamePage3.classList.add("activeGame3");
+  currentWord = wordList[2];
   definitionEl3.textContent = definitionList[2].definition;
 };
 
 nextBtn3.onclick = () => {
   gamePage3.classList.remove("activeGame3");
   gamePage4.classList.add("activeGame4");
+  currentWord = wordList[3];
   definitionEl4.textContent = definitionList[3].definition;
 };
 
 nextBtn4.onclick = () => {
   gamePage4.classList.remove("activeGame4");
   gamePage5.classList.add("activeGame5");
+  currentWord = wordList[4];
   definitionEl5.textContent = definitionList[4].definition;
 };
 
 nextBtn5.onclick = () => {
   gamePage5.classList.remove("activeGame5");
   levelPage.classList.add("activeLevel");
+  
 };
 
 // //Result level
@@ -355,6 +364,154 @@ endBtn.onclick = () => {
 
 //onclick speech API
 speechButtonEl.onclick = function talk() {
+  var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+  var src = currentWord;
+  var hl = "en-us";
+  var c = "wav";
+  var f = "8khz_8bit_mono";
+  var ssml = false;
+
+
+
+  var url =
+    "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+    hl +
+    "&c=" +
+    c +
+    "&f=" +
+    f +
+    "&src=" +
+    src;
+  console.log(url);
+
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  var audio = document.createElement("audio");
+
+  speechButtonEl.appendChild(audio);
+
+  var hearAudio = new Audio(url);
+  hearAudio.play();
+};
+
+speechButtonEl2.onclick = function talk() {
+  var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+  var src = currentWord;
+  var hl = "en-us";
+  var c = "wav";
+  var f = "8khz_8bit_mono";
+  var ssml = false;
+
+
+
+  var url =
+    "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+    hl +
+    "&c=" +
+    c +
+    "&f=" +
+    f +
+    "&src=" +
+    src;
+  console.log(url);
+
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  var audio = document.createElement("audio");
+
+  speechButtonEl.appendChild(audio);
+
+  var hearAudio = new Audio(url);
+  hearAudio.play();
+};
+
+speechButtonEl3.onclick = function talk() {
+  var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+  var src = currentWord;
+  var hl = "en-us";
+  var c = "wav";
+  var f = "8khz_8bit_mono";
+  var ssml = false;
+
+
+
+  var url =
+    "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+    hl +
+    "&c=" +
+    c +
+    "&f=" +
+    f +
+    "&src=" +
+    src;
+  console.log(url);
+
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  var audio = document.createElement("audio");
+
+  speechButtonEl.appendChild(audio);
+
+  var hearAudio = new Audio(url);
+  hearAudio.play();
+};
+
+speechButtonEl4.onclick = function talk() {
+  var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+  var src = currentWord;
+  var hl = "en-us";
+  var c = "wav";
+  var f = "8khz_8bit_mono";
+  var ssml = false;
+
+
+
+  var url =
+    "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+    hl +
+    "&c=" +
+    c +
+    "&f=" +
+    f +
+    "&src=" +
+    src;
+  console.log(url);
+
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  var audio = document.createElement("audio");
+
+  speechButtonEl.appendChild(audio);
+
+  var hearAudio = new Audio(url);
+  hearAudio.play();
+};
+
+speechButtonEl5.onclick = function talk() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
