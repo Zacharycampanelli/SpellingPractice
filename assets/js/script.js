@@ -46,6 +46,13 @@ var timerEl2 = document.querySelector(".timer2");
 var timerEl3 = document.querySelector(".timer3");
 var timerEl4 = document.querySelector(".timer4");
 var timerEl5 = document.querySelector(".timer5");
+
+var rightOrWrongEl = document.getElementById("success");
+var rightOrWrongEl2 = document.getElementById("success2");
+var rightOrWrongEl3 = document.getElementById("success3");
+var rightOrWrongEl4 = document.getElementById("success4");
+var rightOrWrongEl5 = document.getElementById("success5");
+
 var timer = 60;
 var currentLevel = 1;
 var currentWord;
@@ -144,11 +151,15 @@ var username = document.querySelector("#user-name");
 // have the value of the input be added to the Welcome...
 document.getElementById("enter-button").onclick = function () {
   document.getElementById("welcome").textContent =
-    "Welcome to Spell Practice " + inputName.value + " !";
+    "Welcome to Spelling Practice, " + inputName.value + " !";
 
   // select other areas that need a username
   document.getElementById("user-name").textContent = inputName.value;
-  document.getElementById("user-names").textContent = inputName.value;
+  document.getElementById("user-name2").textContent = inputName.value;
+  document.getElementById("user-name3").textContent = inputName.value;
+  document.getElementById("user-name4").textContent = inputName.value;
+  document.getElementById("user-name5").textContent = inputName.value;
+  document.getElementById("user-name6").textContent = inputName.value;
 
   titleEl.textContent = inputName;
   // Add the player name to local storage and usage json to make a value
@@ -297,13 +308,18 @@ endBtn.onclick = () => {
 };
 
 //onclick speech API
-speechButtonEl.onclick = function talk() {
+speechButtonEl.onclick = function talk1() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
+
+console.log(currentWord);
+
+console.log(url);
+
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -332,7 +348,7 @@ speechButtonEl.onclick = function talk() {
   hearAudio.play();
 };
 
-speechButtonEl2.onclick = function talk() {
+speechButtonEl2.onclick = function talk2() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -361,13 +377,13 @@ speechButtonEl2.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl2.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
 
-speechButtonEl3.onclick = function talk() {
+speechButtonEl3.onclick = function talk3() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -396,13 +412,13 @@ speechButtonEl3.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl3.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
 
-speechButtonEl4.onclick = function talk() {
+speechButtonEl4.onclick = function talk4() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -431,13 +447,13 @@ speechButtonEl4.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl4.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
 
-speechButtonEl5.onclick = function talk() {
+speechButtonEl5.onclick = function talk5() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -466,8 +482,9 @@ speechButtonEl5.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl5.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
+

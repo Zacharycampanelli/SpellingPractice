@@ -9,6 +9,11 @@ h1 {
     font-size:32px;
 }
 
+h2 {
+    text-align:center;
+
+}
+
 html {
     background-color: black;
 }
@@ -96,46 +101,103 @@ html {
     transform: translateY(-5250px);
 }
 
-.timer , .timer2, .timer3, .timer4, .timer5{
+.timer, 
+.timer2,
+.timer3,
+.timer4,
+.timer5 {
     color:white;
+}
+.level {
+    margin-top:20px;
+}
+
+#level1 {
+    background-color:yellow;
+}
+
+#level2 {
+    background-color: orange;
+}
+
+#level3 {
+    background-color: green;
+}
+
+#level4 {
+    background-color: blue;
+}
+
+#level5 {
+    background-color: red;
+}
+
+#medal {
+    background-color:silver;
+}
+
+
+.rules {
+margin-top: 10px;
+}
+
+#start-button {
+    margin-top: 20px;
+}
+
+#user-name,
+#user-name2,
+#user-name3,
+#user-name4,
+#user-name5,
+#user-name6 {
+    background-color:silver;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    
+}
+
+#definition-box {
+    background-color:silver;
+}
+
+#definition,
+#definition2,
+#definition3,
+#definition4,
+#definition5 {
+    font-size: 32px;
 }
 
 /* Mobile devices (390px and up) */
 @media only sreen and (min-width: 390px) {
-
 .user-input.activeInput {
     transform: translateY(-467px);
 }
-
 .game-page.activeGame {
     transform: translateY(-934px);
 }
-
 .game-page2.activeGame2 {
     transform: translateY(-1706px);
 }
-
 .game-page3.activeGame3 {
     transform: translateY(-2572px);
 }
-
 .game-page4.activeGame4 {
     transform: translateY(-3441px);
 }
-
 .game-page5.activeGame5 {
     transform: translateY(-4308px);
 }
-
 .level-page.activeLevel {
     transform: translateY(-5198px);
 }
-
 .end-page.activeEndpage {
     transform: translateY(-6615px);
 }
     
-}
+};
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
