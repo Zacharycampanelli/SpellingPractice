@@ -96,7 +96,7 @@ html {
     transform: translateY(-5250px);
 }
 
-.timer {
+.timer , .timer2, .timer3, .timer4, .timer5{
     color:white;
 }
 

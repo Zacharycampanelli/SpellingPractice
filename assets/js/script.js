@@ -37,7 +37,11 @@ var speechButtonEl5 = document.getElementById("speech-button5");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
-var timer = 30;
+var timerEl2 = document.querySelector(".timer2");
+var timerEl3 = document.querySelector(".timer3");
+var timerEl4 = document.querySelector(".timer4");
+var timerEl5 = document.querySelector(".timer5");
+var timer = 60;
 var currentLevel = 1;
 var currentWord;
 var wordList = [];
@@ -50,6 +54,10 @@ function setTimer() {
   timeInterval = setInterval(function () {
     if (timer > 0) {
       timerEl.textContent = timer;
+      timerEl2.textContent = timer;
+      timerEl3.textContent = timer;
+      timerEl4.textContent = timer;
+      timerEl5.textContent = timer;
       timer--;
     } else {
       timerEl.textContent = 0;
