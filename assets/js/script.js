@@ -192,10 +192,10 @@ submitBtn.onclick = function () {
     document.getElementById("userAnswer").value.toLowerCase()
   ) {    
     rightOrWrongEl.classList.remove("has-text-danger")
-    rightOrWrongEl.classList.add("has-text-success")
+    rightOrWrongEl.classList.add("has-text-success-dark")
     rightOrWrongEl.textContent = "correct!";
   } else {
-    rightOrWrongEl.classList.remove("has-text-success")
+    rightOrWrongEl.classList.remove("has-text-success-dark")
     rightOrWrongEl.classList.add("has-text-danger")
     rightOrWrongEl.textContent = "wrong!";
   }
@@ -207,10 +207,10 @@ submitBtn2.onclick = function () {
     document.getElementById("userAnswer2").value.toLowerCase()
   ) {
     rightOrWrongEl2.classList.remove("has-text-danger")
-    rightOrWrongEl2.classList.add("has-text-success")
+    rightOrWrongEl2.classList.add("has-text-success-dark")
     rightOrWrongEl2.textContent = "correct!";
   } else {
-    rightOrWrongEl2.classList.remove("has-text-success")
+    rightOrWrongEl2.classList.remove("has-text-success-dark")
     rightOrWrongEl2.classList.add("has-text-danger")
     rightOrWrongEl2.textContent = "wrong!";
   }
@@ -222,10 +222,10 @@ submitBtn3.onclick = function () {
     document.getElementById("userAnswer3").value.toLowerCase()
   ) {
     rightOrWrongEl3.classList.remove("has-text-danger")
-    rightOrWrongEl3.classList.add("has-text-success")
+    rightOrWrongEl3.classList.add("has-text-success-dark")
     rightOrWrongEl3.textContent = "correct!";
   } else {
-    rightOrWrongEl3.classList.remove("has-text-success")
+    rightOrWrongEl3.classList.remove("has-text-success-dark")
     rightOrWrongEl3.classList.add("has-text-danger")
     rightOrWrongEl3.textContent = "wrong!";
   }
@@ -237,10 +237,10 @@ submitBtn4.onclick = function () {
     document.getElementById("userAnswer4").value.toLowerCase()
   ) {
     rightOrWrongEl4.classList.remove("has-text-danger")
-    rightOrWrongEl4.classList.add("has-text-success")
+    rightOrWrongEl4.classList.add("has-text-success-dark")
     rightOrWrongEl4.textContent = "correct!";
   } else {
-    rightOrWrongEl4.classList.remove("has-text-success")
+    rightOrWrongEl4.classList.remove("has-text-success-dark")
     rightOrWrongEl4.classList.add("has-text-danger")
     rightOrWrongEl4.textContent = "wrong!";
   }
@@ -252,10 +252,10 @@ submitBtn5.onclick = function () {
     document.getElementById("userAnswer5").value.toLowerCase()
   ) {
     rightOrWrongEl5.classList.remove("has-text-danger")
-    rightOrWrongEl5.classList.add("has-text-success")
+    rightOrWrongEl5.classList.add("has-text-success-dark")
     rightOrWrongEl5.textContent = "correct!";
   } else {
-    rightOrWrongEl5.classList.remove("has-text-success")
+    rightOrWrongEl5.classList.remove("has-text-success-dark")
     rightOrWrongEl5.classList.add("has-text-danger")
     rightOrWrongEl5.textContent = "wrong!";
   }
