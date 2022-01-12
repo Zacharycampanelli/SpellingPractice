@@ -24,6 +24,10 @@ var keepgBtn = document.querySelector(".keep-btn2");
 var endBtn = document.querySelector(".end-btn");
 var endPage = document.querySelector(".end-page");
 var submitBtn = document.querySelector(".submit");
+var submitBtn2 = document.querySelector(".submit2");
+var submitBtn3 = document.querySelector(".submit3");
+var submitBtn4 = document.querySelector(".submit4");
+var submitBtn5 = document.querySelector(".submit5");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
@@ -250,6 +254,38 @@ continueBtn.onclick = () => {
 
 //Submit button
 submitBtn.onclick = function () {
+  if (currentWord == document.getElementById("userAnswer").value) {
+    console.log("success");
+  } else {
+    console.log("failure");
+  }
+};
+
+submitBtn2.onclick = function () {
+  if (currentWord == document.getElementById("userAnswer").value) {
+    console.log("success");
+  } else {
+    console.log("failure");
+  }
+};
+
+submitBtn3.onclick = function () {
+  if (currentWord == document.getElementById("userAnswer").value) {
+    console.log("success");
+  } else {
+    console.log("failure");
+  }
+};
+
+submitBtn4.onclick = function () {
+  if (currentWord == document.getElementById("userAnswer").value) {
+    console.log("success");
+  } else {
+    console.log("failure");
+  }
+};
+
+submitBtn5.onclick = function () {
   if (currentWord == document.getElementById("userAnswer").value) {
     console.log("success");
   } else {
