@@ -180,7 +180,7 @@ submitBtn.onclick = function () {
 };
 
 submitBtn2.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (currentWord == document.getElementById("userAnswer2").value) {
     console.log("success");
   } else {
     console.log("failure");
@@ -188,7 +188,7 @@ submitBtn2.onclick = function () {
 };
 
 submitBtn3.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (currentWord == document.getElementById("userAnswer3").value) {
     console.log("success");
   } else {
     console.log("failure");
@@ -196,7 +196,7 @@ submitBtn3.onclick = function () {
 };
 
 submitBtn4.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (currentWord == document.getElementById("userAnswer4").value) {
     console.log("success");
   } else {
     console.log("failure");
@@ -204,7 +204,7 @@ submitBtn4.onclick = function () {
 };
 
 submitBtn5.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (currentWord == document.getElementById("userAnswer5").value) {
     console.log("success");
   } else {
     console.log("failure");
@@ -259,7 +259,46 @@ endBtn.onclick = () => {
 };
 
 //onclick speech API
-speechButtonEl.onclick = function talk() {
+speechButtonEl.onclick = function talk1() {
+  var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+  var src = currentWord;
+  var hl = "en-us";
+  var c = "wav";
+  var f = "8khz_8bit_mono";
+  var ssml = false;
+
+console.log(currentWord);
+
+console.log(url);
+
+  var url =
+    "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+    hl +
+    "&c=" +
+    c +
+    "&f=" +
+    f +
+    "&src=" +
+    src;
+  console.log(url);
+
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  var audio = document.createElement("audio");
+
+  speechButtonEl.appendChild(audio);
+
+  var hearAudio = new Audio(url);
+  hearAudio.play();
+};
+
+speechButtonEl2.onclick = function talk2() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -290,13 +329,13 @@ speechButtonEl.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl2.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
 
-speechButtonEl2.onclick = function talk() {
+speechButtonEl3.onclick = function talk3() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -327,13 +366,13 @@ speechButtonEl2.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl3.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
 
-speechButtonEl3.onclick = function talk() {
+speechButtonEl4.onclick = function talk4() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -364,13 +403,13 @@ speechButtonEl3.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl4.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
 
-speechButtonEl4.onclick = function talk() {
+speechButtonEl5.onclick = function talk5() {
   var key = "0e3c3b4db7374feea8cf6109d290d6ec";
   var src = currentWord;
   var hl = "en-us";
@@ -401,45 +440,9 @@ speechButtonEl4.onclick = function talk() {
 
   var audio = document.createElement("audio");
 
-  speechButtonEl.appendChild(audio);
+  speechButtonEl5.appendChild(audio);
 
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
 
-speechButtonEl5.onclick = function talk() {
-  var key = "0e3c3b4db7374feea8cf6109d290d6ec";
-  var src = currentWord;
-  var hl = "en-us";
-  var c = "wav";
-  var f = "8khz_8bit_mono";
-  var ssml = false;
-
-
-
-  var url =
-    "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
-    hl +
-    "&c=" +
-    c +
-    "&f=" +
-    f +
-    "&src=" +
-    src;
-  console.log(url);
-
-  fetch(url)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-
-  var audio = document.createElement("audio");
-
-  speechButtonEl.appendChild(audio);
-
-  var hearAudio = new Audio(url);
-  hearAudio.play();
-};
