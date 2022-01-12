@@ -34,6 +34,8 @@ var speechButtonEl3 = document.getElementById("speech-button3");
 var speechButtonEl4 = document.getElementById("speech-button4");
 var speechButtonEl5 = document.getElementById("speech-button5");
 
+var rightOrWrongEl = document.createElement("div");
+
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
 var timerEl2 = document.querySelector(".timer2");
@@ -183,7 +185,7 @@ submitBtn.onclick = function () {
 submitBtn2.onclick = function () {
   if (
     currentWord.toLowerCase() ==
-    document.getElementById("userAnswer").value.toLowerCase()
+    document.getElementById("userAnswer2").value.toLowerCase()
   ) {
     console.log("success");
   } else {
@@ -194,7 +196,7 @@ submitBtn2.onclick = function () {
 submitBtn3.onclick = function () {
   if (
     currentWord.toLowerCase() ==
-    document.getElementById("userAnswer").value.toLowerCase()
+    document.getElementById("userAnswer3").value.toLowerCase()
   ) {
     console.log("success");
   } else {
@@ -205,7 +207,7 @@ submitBtn3.onclick = function () {
 submitBtn4.onclick = function () {
   if (
     currentWord.toLowerCase() ==
-    document.getElementById("userAnswer").value.toLowerCase()
+    document.getElementById("userAnswer4").value.toLowerCase()
   ) {
     console.log("success");
   } else {
@@ -216,7 +218,7 @@ submitBtn4.onclick = function () {
 submitBtn5.onclick = function () {
   if (
     currentWord.toLowerCase() ==
-    document.getElementById("userAnswer").value.toLowerCase()
+    document.getElementById("userAnswer5").value.toLowerCase()
   ) {
     console.log("success");
   } else {
