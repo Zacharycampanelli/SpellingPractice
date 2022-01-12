@@ -172,7 +172,7 @@ continueBtn.onclick = () => {
 
 //Submit button
 submitBtn.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (currentWord.toLowerCase() == document.getElementById("userAnswer").value.toLowerCase()) {
     console.log("success");
   } else {
     console.log("failure");
