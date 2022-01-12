@@ -34,6 +34,11 @@ var speechButtonEl3 = document.getElementById("speech-button3");
 var speechButtonEl4 = document.getElementById("speech-button4");
 var speechButtonEl5 = document.getElementById("speech-button5");
 
+var rightOrWrongEl = document.getElementById("success");
+var rightOrWrongEl2 = document.getElementById("success2");
+var rightOrWrongEl3 = document.getElementById("success3");
+var rightOrWrongEl4 = document.getElementById("success4");
+var rightOrWrongEl5 = document.getElementById("success5");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
@@ -54,7 +59,6 @@ var currentWord;
 var wordList = [];
 var definitionList = [];
 var questionNum = 0;
-
 
 // Timer Function
 function setTimer() {
@@ -289,7 +293,6 @@ nextBtn4.onclick = () => {
 nextBtn5.onclick = () => {
   gamePage5.classList.remove("activeGame5");
   levelPage.classList.add("activeLevel");
-  
 };
 
 //Keep going to the next game level
@@ -316,6 +319,7 @@ speechButtonEl.onclick = function talk1() {
 console.log(currentWord);
 
 console.log(url);
+
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -352,8 +356,6 @@ speechButtonEl2.onclick = function talk2() {
   var f = "8khz_8bit_mono";
   var ssml = false;
 
-
-
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
     hl +
@@ -388,8 +390,6 @@ speechButtonEl3.onclick = function talk3() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -426,8 +426,6 @@ speechButtonEl4.onclick = function talk4() {
   var f = "8khz_8bit_mono";
   var ssml = false;
 
-
-
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
     hl +
@@ -462,8 +460,6 @@ speechButtonEl5.onclick = function talk5() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
