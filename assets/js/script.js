@@ -41,13 +41,9 @@ var timer = 30;
 var currentLevel = 1;
 var currentWord;
 var wordList = [];
-// var frequencyList = [];
 var definitionList = [];
 var questionNum = 0;
 
-// var easy = [];
-// var medium = [];
-// var hard = [];
 
 // Timer Function
 function setTimer() {
@@ -85,9 +81,6 @@ async function getDefinition(list) {
       definitionList.push(wordObj);
       console.log(definitionList);
       definitionEl.textContent = definitionList[0].definition;
-
-      //currentWord = wordList[questionNum];
-      //console.log(currentWord);
     }
 
     // ERROR HANDLING HERE
@@ -100,87 +93,12 @@ async function getDefinition(list) {
 // });
 //}
 
-// Dynamically updates html page
-// function updatePage() {
-//   //currentWord = definitionList[questionNum]//.word;
-//   definitionEl.textContent = definitionList[questionNum]; //.definition;
-//   console.log(currentWord, questionNum);
-//   questionNum++;
-//   // for (i = 0; i < level.length; i++) {
-//   currentWord = level[i];
-//   getDefinition(level[questionNum]);
-// }
-// }
-
 // Returns a global array of words created with the random words api
 function getArray(list, input) {
   for (i = 0; i < input.length; i++) {
     list.push(input[i]);
   }
 }
-
-// Sorts words based on frequency score
-// function scoreFrequency(item) {
-//   console.log(item);
-//   if (item.score > 4.5) {
-//     easy.push(item.word);
-//   } else if (item.score > 3) {
-//     medium.push(item.word);
-//   } else if (item.score > 0) {
-//     hard.push(item.word);
-//   }
-// }
-//
-// // Returns the frequency (0 - 7) of a word to rate it's difficulty
-// async function getFrequencyAPI() {
-//   var word;
-//   var freq;
-//   for (var i = 0; i < wordList.length; i++) {
-//     const res = await fetch(
-//       "https://wordsapiv1.p.rapidapi.com/words/" + wordList[i] + "/frequency",
-//       {
-//         method: "GET",
-//         headers: {
-//           "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-//           "x-rapidapi-key":
-//             "60c5dbb668msh1e563b9d339bd3ep1cea02jsn0849238ba190",
-//         },
-//       }
-//     )
-//       .then(function (res) {
-//         if (res.ok && res.status == 200) {
-//           res.json().then(function (data) {
-//             if (data.frequency.zipf != undefined) {
-//               console.log(data.frequency.zipf);
-//               freq = data.frequency.zipf;
-//               chosenWord = data.word;
-//               freq = data.frequency.zipf;
-//               var wordScore = {
-//                 word: chosenWord,
-//                 score: freq,
-//               };
-//               frequencyList.push(wordScore);
-//             }
-//           });
-//         } else {
-//           console.log(
-//             "Error Code: " + response.status + "\n" + response.statusText
-//           );
-//         }
-//       })
-//       .catch(function (err) {
-//         console.error(err);
-//       });
-//   }
-
-//   for (var i = 0; i < frequencyList.length; i++) {
-//     console.log(wordList, freq);
-//     console.log(frequencyList[i]);
-//     scoreFrequency(frequencyList[i]);
-//   }
-//   console.log(easy, medium);
-//   updatePage(easy);
-// }
 
 // Returns a list of random words
 async function getRandomWord() {
@@ -195,21 +113,8 @@ async function getRandomWord() {
     }
   );
   const data = await response.json();
-  console.log(data);
-  // if
-  //   .then(function (response) {
-  //     if (response.ok) {
-  //       response.json().then(function (data) {
   getArray(wordList, data);
-
   console.log(wordList);
-  // for (var i = 0; i < wordList.length; i++) getDefinition(wordList[i]);
-  //     });
-  // //   }
-  // })
-  // .catch(function (err) {
-  //   console.error(err);
-  // });
 }
 
 //Start game
@@ -255,7 +160,6 @@ continueBtn.onclick = () => {
   currentWord = wordList[0];
   console.log(wordList, currentWord);
   definitionEl.textContent = definitionList[questionNum];
-  // updatePage();
 };
 
 //Submit button
@@ -299,16 +203,6 @@ submitBtn5.onclick = function () {
   }
 };
 
-//Next button to the level page
-// nextBtn.onclick = () => {
-//   if(questionNum < -1){
-//     questionNum++;
-//     getDefinition(questionNum);
-//   }else {
-//     activeLvlPage();
-//   }
-// };
-
 // Next button to the level page
 nextBtn.onclick = () => {
   gamePage.classList.remove("activeGame");
@@ -343,12 +237,6 @@ nextBtn5.onclick = () => {
   levelPage.classList.add("activeLevel");
   
 };
-
-// //Result level
-// function activeLvlPage() {
-//   gamePage.classList.remove("activeGame");
-//   levelPage.classList.add("activeLevel");
-// }
 
 //Keep going to the next game level
 keepgBtn.onclick = () => {
