@@ -27,7 +27,7 @@ var submitBtn = document.querySelector(".submit");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
-var timer = 60;
+var timer = 30;
 var currentLevel = 1;
 var currentWord;
 var wordList = [];
@@ -217,7 +217,7 @@ var username = document.querySelector("#user-name");
 // have the value of the input be added to the Welcome...
 document.getElementById("enter-button").onclick = function () {
   document.getElementById("welcome").textContent =
-    "Welcome to Spelling Practice, " + inputName.value + " !";
+    "Welcome to Spell Practice " + inputName.value + " !";
 
   // select other areas that need a username
   document.getElementById("user-name").textContent = inputName.value;
@@ -318,7 +318,7 @@ endBtn.onclick = () => {
 //onclick speech API
 
 var key = "0e3c3b4db7374feea8cf6109d290d6ec";
-var src = currentWord;
+var src = "this is working";
 var hl = "en-us";
 var c = "wav";
 var f = "8khz_8bit_mono";
@@ -336,11 +336,7 @@ var url =
   "&src=" +
   src;
 
-
-  console.log(url);
-
-  speechButtonEl.onclick = function talk() {
-
+speechButtonEl.onclick = function talk() {
   fetch(url)
     .then((response) => {
       console.log(response);
