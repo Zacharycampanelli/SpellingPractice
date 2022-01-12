@@ -28,6 +28,8 @@ var submitBtn2 = document.querySelector(".submit2");
 var submitBtn3 = document.querySelector(".submit3");
 var submitBtn4 = document.querySelector(".submit4");
 var submitBtn5 = document.querySelector(".submit5");
+var speechButtonEl = document.getElementById("speech-button");
+
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
@@ -79,7 +81,7 @@ async function getDefinition(list) {
       definitionList.push(wordObj);
       console.log(definitionList);
       definitionEl.textContent = definitionList[0].definition;
-     
+
       //currentWord = wordList[questionNum];
       //console.log(currentWord);
     }
@@ -101,9 +103,9 @@ async function getDefinition(list) {
 //   console.log(currentWord, questionNum);
 //   questionNum++;
 //   // for (i = 0; i < level.length; i++) {
-  //   currentWord = level[i];
-  //   getDefinition(level[questionNum]);
-  // }
+//   currentWord = level[i];
+//   getDefinition(level[questionNum]);
+// }
 // }
 
 // Returns a global array of words created with the random words api
@@ -352,27 +354,27 @@ endBtn.onclick = () => {
 };
 
 //onclick speech API
-
-var key = "0e3c3b4db7374feea8cf6109d290d6ec";
-var src = "this is working";
-var hl = "en-us";
-var c = "wav";
-var f = "8khz_8bit_mono";
-var ssml = false;
-
-var speechButtonEl = document.getElementById("speech-button");
-
-var url =
-  "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
-  hl +
-  "&c=" +
-  c +
-  "&f=" +
-  f +
-  "&src=" +
-  src;
-
 speechButtonEl.onclick = function talk() {
+  var key = "0e3c3b4db7374feea8cf6109d290d6ec";
+  var src = currentWord;
+  var hl = "en-us";
+  var c = "wav";
+  var f = "8khz_8bit_mono";
+  var ssml = false;
+
+
+
+  var url =
+    "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
+    hl +
+    "&c=" +
+    c +
+    "&f=" +
+    f +
+    "&src=" +
+    src;
+  console.log(url);
+
   fetch(url)
     .then((response) => {
       console.log(response);
