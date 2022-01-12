@@ -41,6 +41,13 @@ var timerEl2 = document.querySelector(".timer2");
 var timerEl3 = document.querySelector(".timer3");
 var timerEl4 = document.querySelector(".timer4");
 var timerEl5 = document.querySelector(".timer5");
+
+var rightOrWrongEl = document.getElementById("success");
+var rightOrWrongEl2 = document.getElementById("success2");
+var rightOrWrongEl3 = document.getElementById("success3");
+var rightOrWrongEl4 = document.getElementById("success4");
+var rightOrWrongEl5 = document.getElementById("success5");
+
 var timer = 60;
 var currentLevel = 1;
 var currentWord;
@@ -176,42 +183,77 @@ continueBtn.onclick = () => {
 
 //Submit button
 submitBtn.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer").value.toLowerCase()
+  ) {    
+    rightOrWrongEl.classList.remove("has-text-danger")
+    rightOrWrongEl.classList.add("has-text-success")
+    rightOrWrongEl.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl.classList.remove("has-text-success")
+    rightOrWrongEl.classList.add("has-text-danger")
+    rightOrWrongEl.textContent = "wrong!";
   }
 };
 
 submitBtn2.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer2").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer2").value.toLowerCase()
+  ) {
+    rightOrWrongEl2.classList.remove("has-text-danger")
+    rightOrWrongEl2.classList.add("has-text-success")
+    rightOrWrongEl2.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl2.classList.remove("has-text-success")
+    rightOrWrongEl2.classList.add("has-text-danger")
+    rightOrWrongEl2.textContent = "wrong!";
   }
 };
 
 submitBtn3.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer3").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer3").value.toLowerCase()
+  ) {
+    rightOrWrongEl3.classList.remove("has-text-danger")
+    rightOrWrongEl3.classList.add("has-text-success")
+    rightOrWrongEl3.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl3.classList.remove("has-text-success")
+    rightOrWrongEl3.classList.add("has-text-danger")
+    rightOrWrongEl3.textContent = "wrong!";
   }
 };
 
 submitBtn4.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer4").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer4").value.toLowerCase()
+  ) {
+    rightOrWrongEl4.classList.remove("has-text-danger")
+    rightOrWrongEl4.classList.add("has-text-success")
+    rightOrWrongEl4.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl4.classList.remove("has-text-success")
+    rightOrWrongEl4.classList.add("has-text-danger")
+    rightOrWrongEl4.textContent = "wrong!";
   }
 };
 
 submitBtn5.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer5").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer5").value.toLowerCase()
+  ) {
+    rightOrWrongEl5.classList.remove("has-text-danger")
+    rightOrWrongEl5.classList.add("has-text-success")
+    rightOrWrongEl5.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl5.classList.remove("has-text-success")
+    rightOrWrongEl5.classList.add("has-text-danger")
+    rightOrWrongEl5.textContent = "wrong!";
   }
 };
 
