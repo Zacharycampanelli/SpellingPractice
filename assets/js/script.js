@@ -34,7 +34,11 @@ var speechButtonEl3 = document.getElementById("speech-button3");
 var speechButtonEl4 = document.getElementById("speech-button4");
 var speechButtonEl5 = document.getElementById("speech-button5");
 
-var rightOrWrongEl = document.createElement("div");
+var rightOrWrongEl = document.getElementById("success");
+var rightOrWrongEl2 = document.getElementById("success2");
+var rightOrWrongEl3 = document.getElementById("success3");
+var rightOrWrongEl4 = document.getElementById("success4");
+var rightOrWrongEl5 = document.getElementById("success5");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
@@ -175,10 +179,14 @@ submitBtn.onclick = function () {
   if (
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer").value.toLowerCase()
-  ) {
-    console.log("success");
+  ) {    
+    rightOrWrongEl.classList.remove("has-text-danger")
+    rightOrWrongEl.classList.add("has-text-success")
+    rightOrWrongEl.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl.classList.remove("has-text-success")
+    rightOrWrongEl.classList.add("has-text-danger")
+    rightOrWrongEl.textContent = "wrong!";
   }
 };
 
@@ -187,9 +195,13 @@ submitBtn2.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer2").value.toLowerCase()
   ) {
-    console.log("success");
+    rightOrWrongEl2.classList.remove("has-text-danger")
+    rightOrWrongEl2.classList.add("has-text-success")
+    rightOrWrongEl2.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl2.classList.remove("has-text-success")
+    rightOrWrongEl2.classList.add("has-text-danger")
+    rightOrWrongEl2.textContent = "wrong!";
   }
 };
 
@@ -198,9 +210,13 @@ submitBtn3.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer3").value.toLowerCase()
   ) {
-    console.log("success");
+    rightOrWrongEl3.classList.remove("has-text-danger")
+    rightOrWrongEl3.classList.add("has-text-success")
+    rightOrWrongEl3.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl3.classList.remove("has-text-success")
+    rightOrWrongEl3.classList.add("has-text-danger")
+    rightOrWrongEl3.textContent = "wrong!";
   }
 };
 
@@ -209,9 +225,13 @@ submitBtn4.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer4").value.toLowerCase()
   ) {
-    console.log("success");
+    rightOrWrongEl4.classList.remove("has-text-danger")
+    rightOrWrongEl4.classList.add("has-text-success")
+    rightOrWrongEl4.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl4.classList.remove("has-text-success")
+    rightOrWrongEl4.classList.add("has-text-danger")
+    rightOrWrongEl4.textContent = "wrong!";
   }
 };
 
@@ -220,9 +240,13 @@ submitBtn5.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer5").value.toLowerCase()
   ) {
-    console.log("success");
+    rightOrWrongEl5.classList.remove("has-text-danger")
+    rightOrWrongEl5.classList.add("has-text-success")
+    rightOrWrongEl5.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl5.classList.remove("has-text-success")
+    rightOrWrongEl5.classList.add("has-text-danger")
+    rightOrWrongEl5.textContent = "wrong!";
   }
 };
 
