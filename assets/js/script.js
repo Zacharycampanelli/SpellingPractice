@@ -140,11 +140,15 @@ var username = document.querySelector("#user-name");
 // have the value of the input be added to the Welcome...
 document.getElementById("enter-button").onclick = function () {
   document.getElementById("welcome").textContent =
-    "Welcome to Spell Practice " + inputName.value + " !";
+    "Welcome to Spelling Practice, " + inputName.value + " !";
 
   // select other areas that need a username
   document.getElementById("user-name").textContent = inputName.value;
-  document.getElementById("user-names").textContent = inputName.value;
+  document.getElementById("user-name2").textContent = inputName.value;
+  document.getElementById("user-name3").textContent = inputName.value;
+  document.getElementById("user-name4").textContent = inputName.value;
+  document.getElementById("user-name5").textContent = inputName.value;
+  document.getElementById("user-name6").textContent = inputName.value;
 
   titleEl.textContent = inputName;
   // Add the player name to local storage and usage json to make a value
