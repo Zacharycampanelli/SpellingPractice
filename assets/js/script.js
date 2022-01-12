@@ -34,6 +34,11 @@ var speechButtonEl3 = document.getElementById("speech-button3");
 var speechButtonEl4 = document.getElementById("speech-button4");
 var speechButtonEl5 = document.getElementById("speech-button5");
 
+var rightOrWrongEl = document.getElementById("success");
+var rightOrWrongEl2 = document.getElementById("success2");
+var rightOrWrongEl3 = document.getElementById("success3");
+var rightOrWrongEl4 = document.getElementById("success4");
+var rightOrWrongEl5 = document.getElementById("success5");
 
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
@@ -47,7 +52,6 @@ var currentWord;
 var wordList = [];
 var definitionList = [];
 var questionNum = 0;
-
 
 // Timer Function
 function setTimer() {
@@ -172,42 +176,77 @@ continueBtn.onclick = () => {
 
 //Submit button
 submitBtn.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer").value.toLowerCase()
+  ) {    
+    rightOrWrongEl.classList.remove("has-text-danger")
+    rightOrWrongEl.classList.add("has-text-success")
+    rightOrWrongEl.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl.classList.remove("has-text-success")
+    rightOrWrongEl.classList.add("has-text-danger")
+    rightOrWrongEl.textContent = "wrong!";
   }
 };
 
 submitBtn2.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer2").value.toLowerCase()
+  ) {
+    rightOrWrongEl2.classList.remove("has-text-danger")
+    rightOrWrongEl2.classList.add("has-text-success")
+    rightOrWrongEl2.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl2.classList.remove("has-text-success")
+    rightOrWrongEl2.classList.add("has-text-danger")
+    rightOrWrongEl2.textContent = "wrong!";
   }
 };
 
 submitBtn3.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer3").value.toLowerCase()
+  ) {
+    rightOrWrongEl3.classList.remove("has-text-danger")
+    rightOrWrongEl3.classList.add("has-text-success")
+    rightOrWrongEl3.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl3.classList.remove("has-text-success")
+    rightOrWrongEl3.classList.add("has-text-danger")
+    rightOrWrongEl3.textContent = "wrong!";
   }
 };
 
 submitBtn4.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer4").value.toLowerCase()
+  ) {
+    rightOrWrongEl4.classList.remove("has-text-danger")
+    rightOrWrongEl4.classList.add("has-text-success")
+    rightOrWrongEl4.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl4.classList.remove("has-text-success")
+    rightOrWrongEl4.classList.add("has-text-danger")
+    rightOrWrongEl4.textContent = "wrong!";
   }
 };
 
 submitBtn5.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
-    console.log("success");
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer5").value.toLowerCase()
+  ) {
+    rightOrWrongEl5.classList.remove("has-text-danger")
+    rightOrWrongEl5.classList.add("has-text-success")
+    rightOrWrongEl5.textContent = "correct!";
   } else {
-    console.log("failure");
+    rightOrWrongEl5.classList.remove("has-text-success")
+    rightOrWrongEl5.classList.add("has-text-danger")
+    rightOrWrongEl5.textContent = "wrong!";
   }
 };
 
@@ -243,7 +282,6 @@ nextBtn4.onclick = () => {
 nextBtn5.onclick = () => {
   gamePage5.classList.remove("activeGame5");
   levelPage.classList.add("activeLevel");
-  
 };
 
 //Keep going to the next game level
@@ -266,8 +304,6 @@ speechButtonEl.onclick = function talk() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -304,8 +340,6 @@ speechButtonEl2.onclick = function talk() {
   var f = "8khz_8bit_mono";
   var ssml = false;
 
-
-
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
     hl +
@@ -340,8 +374,6 @@ speechButtonEl3.onclick = function talk() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -378,8 +410,6 @@ speechButtonEl4.onclick = function talk() {
   var f = "8khz_8bit_mono";
   var ssml = false;
 
-
-
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
     hl +
@@ -414,8 +444,6 @@ speechButtonEl5.onclick = function talk() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
