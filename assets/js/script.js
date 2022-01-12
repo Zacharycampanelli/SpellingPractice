@@ -34,7 +34,6 @@ var speechButtonEl3 = document.getElementById("speech-button3");
 var speechButtonEl4 = document.getElementById("speech-button4");
 var speechButtonEl5 = document.getElementById("speech-button5");
 
-
 var titleEl = document.querySelector(".title");
 var timerEl = document.querySelector(".timer");
 var timerEl2 = document.querySelector(".timer2");
@@ -47,7 +46,6 @@ var currentWord;
 var wordList = [];
 var definitionList = [];
 var questionNum = 0;
-
 
 // Timer Function
 function setTimer() {
@@ -172,7 +170,10 @@ continueBtn.onclick = () => {
 
 //Submit button
 submitBtn.onclick = function () {
-  if (currentWord.toLowerCase() == document.getElementById("userAnswer").value.toLowerCase()) {
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer").value.toLowerCase()
+  ) {
     console.log("success");
   } else {
     console.log("failure");
@@ -180,7 +181,10 @@ submitBtn.onclick = function () {
 };
 
 submitBtn2.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer").value.toLowerCase()
+  ) {
     console.log("success");
   } else {
     console.log("failure");
@@ -188,7 +192,10 @@ submitBtn2.onclick = function () {
 };
 
 submitBtn3.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer").value.toLowerCase()
+  ) {
     console.log("success");
   } else {
     console.log("failure");
@@ -196,7 +203,10 @@ submitBtn3.onclick = function () {
 };
 
 submitBtn4.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer").value.toLowerCase()
+  ) {
     console.log("success");
   } else {
     console.log("failure");
@@ -204,7 +214,10 @@ submitBtn4.onclick = function () {
 };
 
 submitBtn5.onclick = function () {
-  if (currentWord == document.getElementById("userAnswer").value) {
+  if (
+    currentWord.toLowerCase() ==
+    document.getElementById("userAnswer").value.toLowerCase()
+  ) {
     console.log("success");
   } else {
     console.log("failure");
@@ -243,7 +256,6 @@ nextBtn4.onclick = () => {
 nextBtn5.onclick = () => {
   gamePage5.classList.remove("activeGame5");
   levelPage.classList.add("activeLevel");
-  
 };
 
 //Keep going to the next game level
@@ -266,8 +278,6 @@ speechButtonEl.onclick = function talk() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -304,8 +314,6 @@ speechButtonEl2.onclick = function talk() {
   var f = "8khz_8bit_mono";
   var ssml = false;
 
-
-
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
     hl +
@@ -340,8 +348,6 @@ speechButtonEl3.onclick = function talk() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -378,8 +384,6 @@ speechButtonEl4.onclick = function talk() {
   var f = "8khz_8bit_mono";
   var ssml = false;
 
-
-
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
     hl +
@@ -414,8 +418,6 @@ speechButtonEl5.onclick = function talk() {
   var c = "wav";
   var f = "8khz_8bit_mono";
   var ssml = false;
-
-
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
