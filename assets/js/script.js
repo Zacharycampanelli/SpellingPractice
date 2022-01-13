@@ -63,7 +63,7 @@ var questionNum = 0;
 // Timer Function
 function setTimer() {
   timeInterval = setInterval(function () {
-    if (timer > 0) {
+    if (timer >= 0) {
       timerEl.textContent = timer;
       timerEl2.textContent = timer;
       timerEl3.textContent = timer;
@@ -190,13 +190,13 @@ submitBtn.onclick = function () {
   if (
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer").value.toLowerCase()
-  ) {    
-    rightOrWrongEl.classList.remove("has-text-danger")
-    rightOrWrongEl.classList.add("has-text-success-dark")
+  ) {
+    rightOrWrongEl.classList.remove("has-text-danger");
+    rightOrWrongEl.classList.add("has-text-success-dark");
     rightOrWrongEl.textContent = "correct!";
   } else {
-    rightOrWrongEl.classList.remove("has-text-success-dark")
-    rightOrWrongEl.classList.add("has-text-danger")
+    rightOrWrongEl.classList.remove("has-text-success-dark");
+    rightOrWrongEl.classList.add("has-text-danger");
     rightOrWrongEl.textContent = "wrong!";
   }
 };
@@ -206,12 +206,12 @@ submitBtn2.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer2").value.toLowerCase()
   ) {
-    rightOrWrongEl2.classList.remove("has-text-danger")
-    rightOrWrongEl2.classList.add("has-text-success-dark")
+    rightOrWrongEl2.classList.remove("has-text-danger");
+    rightOrWrongEl2.classList.add("has-text-success-dark");
     rightOrWrongEl2.textContent = "correct!";
   } else {
-    rightOrWrongEl2.classList.remove("has-text-success-dark")
-    rightOrWrongEl2.classList.add("has-text-danger")
+    rightOrWrongEl2.classList.remove("has-text-success-dark");
+    rightOrWrongEl2.classList.add("has-text-danger");
     rightOrWrongEl2.textContent = "wrong!";
   }
 };
@@ -221,12 +221,12 @@ submitBtn3.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer3").value.toLowerCase()
   ) {
-    rightOrWrongEl3.classList.remove("has-text-danger")
-    rightOrWrongEl3.classList.add("has-text-success-dark")
+    rightOrWrongEl3.classList.remove("has-text-danger");
+    rightOrWrongEl3.classList.add("has-text-success-dark");
     rightOrWrongEl3.textContent = "correct!";
   } else {
-    rightOrWrongEl3.classList.remove("has-text-success-dark")
-    rightOrWrongEl3.classList.add("has-text-danger")
+    rightOrWrongEl3.classList.remove("has-text-success-dark");
+    rightOrWrongEl3.classList.add("has-text-danger");
     rightOrWrongEl3.textContent = "wrong!";
   }
 };
@@ -236,12 +236,12 @@ submitBtn4.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer4").value.toLowerCase()
   ) {
-    rightOrWrongEl4.classList.remove("has-text-danger")
-    rightOrWrongEl4.classList.add("has-text-success-dark")
+    rightOrWrongEl4.classList.remove("has-text-danger");
+    rightOrWrongEl4.classList.add("has-text-success-dark");
     rightOrWrongEl4.textContent = "correct!";
   } else {
-    rightOrWrongEl4.classList.remove("has-text-success-dark")
-    rightOrWrongEl4.classList.add("has-text-danger")
+    rightOrWrongEl4.classList.remove("has-text-success-dark");
+    rightOrWrongEl4.classList.add("has-text-danger");
     rightOrWrongEl4.textContent = "wrong!";
   }
 };
@@ -251,12 +251,12 @@ submitBtn5.onclick = function () {
     currentWord.toLowerCase() ==
     document.getElementById("userAnswer5").value.toLowerCase()
   ) {
-    rightOrWrongEl5.classList.remove("has-text-danger")
-    rightOrWrongEl5.classList.add("has-text-success-dark")
+    rightOrWrongEl5.classList.remove("has-text-danger");
+    rightOrWrongEl5.classList.add("has-text-success-dark");
     rightOrWrongEl5.textContent = "correct!";
   } else {
-    rightOrWrongEl5.classList.remove("has-text-success-dark")
-    rightOrWrongEl5.classList.add("has-text-danger")
+    rightOrWrongEl5.classList.remove("has-text-success-dark");
+    rightOrWrongEl5.classList.add("has-text-danger");
     rightOrWrongEl5.textContent = "wrong!";
   }
 };
@@ -316,10 +316,9 @@ speechButtonEl.onclick = function talk1() {
   var f = "8khz_8bit_mono";
   var ssml = false;
 
-console.log(currentWord);
+  console.log(currentWord);
 
-console.log(url);
-
+  console.log(url);
 
   var url =
     "http://api.voicerss.org/?key=0e3c3b4db7374feea8cf6109d290d6ec&hl=" +
@@ -487,4 +486,3 @@ speechButtonEl5.onclick = function talk5() {
   var hearAudio = new Audio(url);
   hearAudio.play();
 };
-
