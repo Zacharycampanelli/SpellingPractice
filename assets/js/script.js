@@ -53,7 +53,7 @@ var rightOrWrongEl3 = document.getElementById("success3");
 var rightOrWrongEl4 = document.getElementById("success4");
 var rightOrWrongEl5 = document.getElementById("success5");
 
-var timer = 5;
+var timer = 60;
 var currentLevel = 1;
 var currentWord;
 var wordList = [];
