@@ -53,7 +53,7 @@ var rightOrWrongEl3 = document.getElementById("success3");
 var rightOrWrongEl4 = document.getElementById("success4");
 var rightOrWrongEl5 = document.getElementById("success5");
 
-var timer = 60;
+var timer = 5;
 var currentLevel = 1;
 var currentWord;
 var wordList = [];
@@ -74,6 +74,10 @@ function setTimer() {
       timerEl.textContent = 0;
       levelPage.classList.add("activeLevel");
       gamePage.classList.remove("activeGame");
+      gamePage2.classList.remove("activeGame2");
+      gamePage3.classList.remove("activeGame3");
+      gamePage4.classList.remove("activeGame4");
+      gamePage5.classList.remove("activeGame5");
       clearInterval(timeInterval);
     }
   }, 1000);
