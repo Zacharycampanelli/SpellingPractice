@@ -8,6 +8,13 @@ var definitionEl5 = document.querySelector("#definition5");
 var startBtn = document.querySelector(".start-btn");
 var welcomePage = document.querySelector(".welcome-page");
 var userInput = document.querySelector(".user-input");
+var inputName = document.querySelector("#input-name");
+var username = document.querySelector("#user-name");
+var modal = document.querySelector(".modal");
+var modalTimer = document.querySelector("#modal-timer")
+var modalCloseEl = document.querySelector(".modal-closes");
+var modalBg = document.querySelector(".modal-background");
+var modalBgTimer = document.querySelector("#modalbg-timer")
 var continueBtn = document.querySelector(".continue-btn");
 var gamePage = document.querySelector(".game-page");
 var gamePage2 = document.querySelector(".game-page2");
@@ -72,6 +79,10 @@ function setTimer() {
       timer--;
     } else {
       timerEl.textContent = 0;
+      modalTimer.classList.add("is-active");
+      modalBgTimer.addEventListener("click", () => {
+        modalTimer.classList.remove("is-active");
+      })
       levelPage.classList.add("activeLevel");
       gamePage.classList.remove("activeGame");
       gamePage2.classList.remove("activeGame2");
@@ -89,8 +100,8 @@ async function getDefinition(list) {
   for (i = 0; i < 5; i++) {
     const response = await fetch(
       "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
-        list[i] +
-        "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
+      list[i] +
+      "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
     );
     const data = await response.json();
     //console.log(data);
@@ -147,11 +158,6 @@ startBtn.onclick = () => {
   getRandomWord();
 };
 
-// add selectors for button and input
-var playerBtnEl = document.querySelector("#enter-button");
-var inputName = document.querySelector("#input-name");
-var username = document.querySelector("#user-name");
-
 // have the value of the input be added to the Welcome...
 document.getElementById("enter-button").onclick = function () {
   document.getElementById("welcome").textContent =
@@ -167,11 +173,21 @@ document.getElementById("enter-button").onclick = function () {
 
   titleEl.textContent = inputName;
   // Add the player name to local storage and usage json to make a value
-  window.localStorage.setItem("player", JSON.stringify(inputName.value));
+  window.localStorage.setItem("player", (inputName.value));
+
+  document.getElementById("welcome").classList.add("hidden");
 
   // if a player puts in nothing give a alert.
   if (inputName.value === "") {
-    alert("You must enter a name");
+    //alert player using modal
+    modal.classList.add("is-active");
+
+    modalBg.addEventListener("click", () => {
+      modal.classList.remove("is-active");
+    })
+  } else {
+    window.localStorage.setItem("player", inputName.value);
+    titleEl.textContent = inputName;
   }
 
   //clear out name after it is entered

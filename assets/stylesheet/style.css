@@ -101,6 +101,21 @@ html {
     transform: translateY(-5250px);
 }
 
+.modal-text {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.modal-alert {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
 .timer, 
 .timer2,
 .timer3,
