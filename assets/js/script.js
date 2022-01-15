@@ -66,7 +66,13 @@ var currentWord;
 var wordList = [];
 var definitionList = [];
 var questionNum = 0;
-
+//checks if there is not a name in local storage
+function checkName() {
+  if (!localStorage.getItem("player")) {
+    return false;
+  }
+  return true;
+}
 // Timer Function
 function setTimer() {
   timeInterval = setInterval(function () {
@@ -153,6 +159,7 @@ async function getRandomWord() {
 
 //Start game
 startBtn.onclick = () => {
+  window.localStorage.clear();
   welcomePage.classList.add("deactiveWelcome");
   userInput.classList.add("activeInput");
   getRandomWord();
@@ -171,7 +178,6 @@ document.getElementById("enter-button").onclick = function () {
   document.getElementById("user-name5").textContent = inputName.value;
   document.getElementById("user-name6").textContent = inputName.value;
 
-  titleEl.textContent = inputName;
   // Add the player name to local storage and usage json to make a value
   window.localStorage.setItem("player", (inputName.value));
 
@@ -196,13 +202,25 @@ document.getElementById("enter-button").onclick = function () {
 
 //Continue game
 continueBtn.onclick = () => {
-  userInput.classList.remove("activeInput");
-  gamePage.classList.add("activeGame");
-  setTimer();
-  getDefinition(wordList);
-  currentWord = wordList[0];
-  console.log(wordList, currentWord);
-  definitionEl.textContent = definitionList[questionNum];
+  // if there is not a name in lS then add modal alert
+  if (!checkName()) {
+    modal.classList.add("is-active");
+    modalBg.addEventListener("click", () => {
+      modal.classList.remove("is-active");
+      return true;
+    })
+  }
+  //if there is then continue the game
+  else {
+    userInput.classList.remove("activeInput");
+    gamePage.classList.add("activeGame");
+    setTimer();
+    getDefinition(wordList);
+    currentWord = wordList[0];
+    console.log(wordList, currentWord);
+    definitionEl.textContent = definitionList[questionNum];
+    return false;
+  }
 };
 
 //Submit button
