@@ -102,29 +102,38 @@ function setTimer() {
 
 //Gets definition of word
 async function getDefinition(list) {
+  var maxNum = 5;
   console.log(list);
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < maxNum; i++) {
     const response = await fetch(
       "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
       list[i] +
       "?key=9294c7d2-c67b-4413-96a7-06eaf28b0be7"
     );
-    const data = await response.json();
-    //console.log(data);
-    if (data[0] != undefined) {
-      var definitionWord = data[0].shortdef[0];
+    if (response.ok) {
+      const data = await response.json();
+      try {
+        if (data[0] != undefined) {
+          var definitionWord = data[0].shortdef[0];
 
-      var wordObj = {
-        word: list[i],
-        definition: definitionWord,
-      };
-      definitionList.push(wordObj);
-      console.log(definitionList);
-      definitionEl.textContent = definitionList[0].definition;
-    }
-
-    // ERROR HANDLING HERE
-    else {
+          var wordObj = {
+            word: list[i],
+            definition: definitionWord,
+          };
+          definitionList.push(wordObj);
+          console.log(definitionList);
+          definitionEl.textContent = definitionList[0].definition;
+        }
+      } catch (error) {
+        // ERROR HANDLING HERE
+        maxNum += 1;
+        definitionList.shift();
+        console.log(error);
+      }
+    } else {
+      maxNum += 1;
+      definitionList.shift();
+      console.log(response.status);
     }
   }
 }
@@ -143,7 +152,7 @@ function getArray(list, input) {
 // Returns a list of random words
 async function getRandomWord() {
   const response = await fetch(
-    "https://random-words5.p.rapidapi.com/getMultipleRandom?count=5",
+    "https://random-words5.p.rapidapi.com/getMultipleRandom?count=8",
     {
       method: "GET",
       headers: {
@@ -152,9 +161,13 @@ async function getRandomWord() {
       },
     }
   );
-  const data = await response.json();
-  getArray(wordList, data);
-  console.log(wordList);
+  if (response.status != 400) {
+    const data = await response.json();
+    getArray(wordList, data);
+    console.log(wordList);
+  } else {
+    console.log(response.status);
+  }
 }
 
 //Start game
