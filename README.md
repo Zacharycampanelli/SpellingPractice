@@ -1,10 +1,14 @@
 # Spelling Practice
 
-## User Story: 
+## About
+
+Spelling Practice is an app that can help anyone improve their spelling. This application uses separate API calls to display the description of a word, and speak the word out loud, leaving the user to take their best guess at spelling that particular word
+
+## User Story
 
 As a parent, I want my child to practice spelling and vocabulary words so that they can improve their literacy competency. 
 
-## Acceptance Criteria:
+## Acceptance Criteria
 
 * GIVEN I'm playing a spelling and vocabulary word game
 * WHEN I start the game
@@ -24,7 +28,7 @@ As a parent, I want my child to practice spelling and vocabulary words so that t
 * THEN I can see my achievement of how far I came by the level reached
 
 
-## Wireframe:
+## Wireframe
 
 ![Project 1 wireframe](https://user-images.githubusercontent.com/92699311/148330879-d23fd148-e7eb-4b41-8a13-1e70b39c1dd6.png)
 
@@ -32,7 +36,7 @@ As a parent, I want my child to practice spelling and vocabulary words so that t
 
 [Spelling App Presentation](https://github.com/JMCampbell2021/run-buddy/files/7877107/spelling.app.presentation.pptx)
 
-## Application Images: 
+## Application Images
 
 ![first page](https://user-images.githubusercontent.com/92699311/149663375-1d9c3236-4e2b-4752-ab92-5cca251e5beb.jpg)
 ![name enter page](https://user-images.githubusercontent.com/92699311/149663389-dfed604f-f85d-44d2-bdc6-5ab78b84ebc6.jpg)
@@ -44,7 +48,7 @@ As a parent, I want my child to practice spelling and vocabulary words so that t
 ![you have run out of time modal](https://user-images.githubusercontent.com/92699311/149663403-f2be5fa7-ebcd-431f-8f3e-eb5b6cdc9829.jpg)
 ![levels page](https://user-images.githubusercontent.com/92699311/149663386-a40b31fb-19a0-4679-a963-bcdd2d28299c.jpg)
 
-## Technology Used:
+## Technology Used
 
 * [Bulma](bulma.io)
 * [Font awesome](https://fontawesome.com)
@@ -53,13 +57,13 @@ As a parent, I want my child to practice spelling and vocabulary words so that t
 * [Random words API](https://rapidapi.com/sheharyar566/api/random-words5/details)
 * [Voice RSS (text to speech)](voicerss.org)
 
-## Contributers:
+## Contributers
 
 * [Teresa](https://github.com/tcampbell01)
 * [Zachary](https://github.com/Zacharycampanelli)
 * [Joseph](https://github.com/JMCampbell2021)
 * [Romario](https://github.com/romvrio)
 
-## Live site:
+## Live site
 
 [Spelling Application](https://zacharycampanelli.github.io/SpellingPractice/)
