@@ -39,6 +39,7 @@ As a parent, I want my child to practice spelling and vocabulary words so that t
 ## Application Images
 
 ![first page](https://user-images.githubusercontent.com/92699311/149663375-1d9c3236-4e2b-4752-ab92-5cca251e5beb.jpg)
+![linkedin_img](https://user-images.githubusercontent.com/84996750/160950856-5fdccea3-6a6e-4b30-93bc-71f6dd9876a3.png)
 ![name enter page](https://user-images.githubusercontent.com/92699311/149663389-dfed604f-f85d-44d2-bdc6-5ab78b84ebc6.jpg)
 ![forgot name modal](https://user-images.githubusercontent.com/92699311/149663381-5f474cf9-83a7-40a5-b6b7-57e59b5e274b.jpg)
 ![welcome page](https://user-images.githubusercontent.com/92699311/149663398-9357e4e9-0296-46d4-ab75-feb5aa5cf6bf.jpg)
